@@ -46,3 +46,10 @@ void BracketChecker2::checkBrackets(const string& filename) {
             }
         }
     }
+
+    while (!bracketStack.empty()) {
+        errorPositions.push_back({ bracketStack.top().first, bracketStack.top().second });
+        bracketStack.pop();
+    }
+
+   
