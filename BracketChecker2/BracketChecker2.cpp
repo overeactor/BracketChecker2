@@ -15,3 +15,10 @@ bool BracketChecker2::isMatchingPair(char open, char close) {
         (open == '[' && close == ']') ||
         (open == '{' && close == '}');
 }
+
+void BracketChecker2::checkBrackets(const string& filename) {
+    ifstream file(filename);
+    if (!file) {
+        cerr << "Error: Cannot open file " << filename << endl;
+        return;
+    }
