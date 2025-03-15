@@ -1,5 +1,4 @@
 #pragma once
-
 #ifndef BRACKETCHECKER_H  
 #define BRACKETCHECKER_H
 
@@ -11,31 +10,16 @@
 
 using namespace std;
 
+class BracketChecker2 {
+public:
+	BracketChecker2();
+	void checkBrackets(const string& filename);
+private:
+	bool isOpeningBracket(char ch);
+	bool isClosingBracket(char ch);
+	bool isMatchingPair(char open, char close);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
 
 
 
