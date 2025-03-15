@@ -1,21 +1,58 @@
+/**
+ * @file BracketChecker2.cpp
+ * @brief Implementation of the BracketChecker2 class.
+ *
+ * This file contains the implementation of methods to check if brackets in a file are balanced.
+ */
+
 #include "BracketChecker2.h"
 
+ /**
+  * @brief Default constructor for BracketChecker2.
+  */
 BracketChecker2::BracketChecker2() {}
 
+/**
+ * @brief Checks if a character is an opening bracket.
+ *
+ * @param ch The character to check.
+ * @return true if the character is an opening bracket, false otherwise.
+ */
 bool BracketChecker2::isOpeningBracket(char ch) {
     return ch == '(' || ch == '[' || ch == '{';
 }
 
+/**
+ * @brief Checks if a character is a closing bracket.
+ *
+ * @param ch The character to check.
+ * @return true if the character is a closing bracket, false otherwise.
+ */
 bool BracketChecker2::isClosingBracket(char ch) {
     return ch == ')' || ch == ']' || ch == '}';
 }
 
+/**
+ * @brief Checks if an opening and closing bracket form a matching pair.
+ *
+ * @param open The opening bracket character.
+ * @param close The closing bracket character.
+ * @return true if the characters form a matching pair, false otherwise.
+ */
 bool BracketChecker2::isMatchingPair(char open, char close) {
     return (open == '(' && close == ')') ||
         (open == '[' && close == ']') ||
         (open == '{' && close == '}');
 }
 
+/**
+ * @brief Checks if the brackets in the given file are balanced.
+ *
+ * Reads a file line by line and checks for unmatched brackets,
+ * reporting their positions if found.
+ *
+ * @param filename The name of the file to check.
+ */
 void BracketChecker2::checkBrackets(const string& filename) {
     ifstream file(filename);
     if (!file) {
