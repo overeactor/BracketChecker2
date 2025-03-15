@@ -52,4 +52,15 @@ void BracketChecker2::checkBrackets(const string& filename) {
         bracketStack.pop();
     }
 
-   
+    if (errorPositions.empty()) {
+        cout << "All brackets are correctly closed." << endl;
+    } else {
+        cout << "Unmatched brackets found: " << endl;
+        for (const auto& error : errorPositions) {
+            cout << "Bracket '" << error.first << "' at Line " << error.second.first
+                << ", Position " << error.second.second << " is unmatched." << endl;
+        }
+    }
+
+    file.close();
+}
