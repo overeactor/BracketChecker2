@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello from text file!" << endl;
+    if (true) {
+        cout << "Checking brackets from .txt file." << endl;
+    }
+    return 0;
+
+}
