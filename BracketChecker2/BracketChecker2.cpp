@@ -22,3 +22,8 @@ void BracketChecker2::checkBrackets(const string& filename) {
         cerr << "Error: Cannot open file " << filename << endl;
         return;
     }
+
+    stack<pair<char, pair<int, int>>> bracketStack;
+    vector<pair<char, pair<int, int>>> errorPositions;
+    string line;
+    int lineNum = 0;
