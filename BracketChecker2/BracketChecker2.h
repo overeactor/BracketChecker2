@@ -11,25 +11,11 @@
 using namespace std;
 
 
-class BracketChecker2 {
+bool isOpeningBracket(char ch);
+bool isClosingBracket(char ch);
+bool isMatchingPair(char open, char close);
 
-public:
-	
-	BracketChecker2();
-	
 
-	void checkBrackets(const string& filename);
-
-private:
-
-	bool isOpeningBracket(char ch);
-	
-	 
-	bool isClosingBracket(char ch);
-
-	bool isMatchingPair(char open, char close);
-
-};
 
 
 
