@@ -8,7 +8,7 @@ bool isOpeningBracket(char ch) {
 
 
 
-bool BracketChecker2::isClosingBracket(char ch) {
+bool isClosingBracket(char ch) {
     return ch == ')' || ch == ']' || ch == '}';
 }
 
