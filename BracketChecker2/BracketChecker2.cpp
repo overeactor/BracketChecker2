@@ -2,9 +2,10 @@
 #include "BracketChecker2.h"
 
 
-bool BracketChecker2::isOpeningBracket(char ch) {
+bool isOpeningBracket(char ch) {
     return ch == '(' || ch == '[' || ch == '{';
 }
+
 
 
 bool BracketChecker2::isClosingBracket(char ch) {
