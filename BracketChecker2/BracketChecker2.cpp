@@ -81,3 +81,12 @@ vector<pair<char, pair<int, int>>> read_input_file(const string& filename) {
             }
         }
     }
+
+    while (!bracketStack.empty()) {
+        errorPositions.push_back({ bracketStack.top().first, bracketStack.top().second });
+        bracketStack.pop();
+    }
+
+    file.close();
+    return errorPositions;
+}
