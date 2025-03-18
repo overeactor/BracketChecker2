@@ -63,3 +63,21 @@ vector<pair<char, pair<int, int>>> read_input_file(const string& filename) {
                     continue;
                 }
             }
+
+
+
+            if (!inBlockComment && !inLineComment) {
+                if (isOpeningBracket(ch)) {
+                    bracketStack.push({ ch, {lineNum, i + 1} });
+                }
+                else if (isClosingBracket(ch)) {
+                    if (!bracketStack.empty() && isMatchingPair(bracketStack.top().first, ch)) {
+                        bracketStack.pop();
+                    }
+                    else {
+                        errorPositions.push_back({ ch, {lineNum, i + 1} });
+                    }
+                }
+            }
+        }
+    }
