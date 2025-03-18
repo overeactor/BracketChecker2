@@ -3,5 +3,7 @@
  
 
 int main() {
-   
+	string inputFile = "code.txt";
+	string outputFile = "result.txt";
+
 }
