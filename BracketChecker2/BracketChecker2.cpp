@@ -12,11 +12,12 @@ bool BracketChecker2::isClosingBracket(char ch) {
 }
 
 
-bool BracketChecker2::isMatchingPair(char open, char close) {
+bool isMatchingPair(char open, char close) {
     return (open == '(' && close == ')') ||
         (open == '[' && close == ']') ||
         (open == '{' && close == '}');
 }
+
 
 
 
