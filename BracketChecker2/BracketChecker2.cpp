@@ -90,3 +90,10 @@ vector<pair<char, pair<int, int>>> read_input_file(const string& filename) {
     file.close();
     return errorPositions;
 }
+
+void print_result(const string& outputFilename, const vector<pair<char, pair<int, int>>>& errors) {
+    ofstream outputFile(outputFilename);
+    if (!outputFile) {
+        cerr << "Error: Cannot open output file " << outputFilename << endl;
+        return;
+    }
