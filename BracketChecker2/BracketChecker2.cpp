@@ -97,3 +97,17 @@ void print_result(const string& outputFilename, const vector<pair<char, pair<int
         cerr << "Error: Cannot open output file " << outputFilename << endl;
         return;
     }
+
+    if (errors.empty()) {
+        outputFile << "All brackets are correctly closed." << endl;
+    }
+    else {
+        outputFile << "Unmatched brackets found: " << endl;
+        for (const auto& error : errors) {
+            outputFile << "Bracket '" << error.first << "' at Line " << error.second.first
+                << ", Position " << error.second.second << " is unmatched." << endl;
+        }
+    }
+
+    outputFile.close();
+}
