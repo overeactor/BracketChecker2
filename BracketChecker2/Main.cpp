@@ -7,4 +7,7 @@ int main() {
 	string outputFile = "result.txt";
 
 	vector<pair<char, pair<int, int>>> errors = read_input_file(inputFile);
+	print_result(outputFile, errors);
+
+	return 0;
 }
