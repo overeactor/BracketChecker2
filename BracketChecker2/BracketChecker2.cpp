@@ -46,18 +46,19 @@ vector<pair<char, pair<int, int>>> read_input_file(const string& filename) {
         for (size_t i = 0; i < line.size(); i++) {
             char ch = line[i];
 
+            // Handle comments correctly
             if (i < line.size() - 1) {
                 if (!inBlockComment && line[i] == '/' && line[i + 1] == '/') {
                     inLineComment = true;
                 }
-                else if (!inLineComment && line[i] == '/' && line[i + 1] == '*') {
+                else if (!inLineComment && !inBlockComment && line[i] == '/' && line[i + 1] == '*') {
                     inBlockComment = true;
-                    i++;
+                    i++; // Skip next character
                     continue;
                 }
                 else if (inBlockComment && line[i] == '*' && line[i + 1] == '/') {
                     inBlockComment = false;
-                    i++;
+                    i++; // Skip next character
                     continue;
                 }
             }
