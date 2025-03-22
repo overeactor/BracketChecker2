@@ -64,22 +64,26 @@ vector<pair<char, pair<int, int>>> read_input_file(const string& filename) {
             }
 
 
+            // Ensure brackets inside both block and line comments are ignored completely
+            if (inBlockComment || inLineComment) {
+                continue;
+            }
 
-            if (!inBlockComment && !inLineComment) {
-                if (isOpeningBracket(ch)) {
-                    bracketStack.push({ ch, {lineNum, i + 1} });
+            // Process brackets only when NOT inside any type of comment
+            if (isOpeningBracket(ch)) {
+                bracketStack.push({ ch, {lineNum, i + 1} });
+            }
+            else if (isClosingBracket(ch)) {
+                if (!bracketStack.empty() && isMatchingPair(bracketStack.top().first, ch)) {
+                    bracketStack.pop();
                 }
-                else if (isClosingBracket(ch)) {
-                    if (!bracketStack.empty() && isMatchingPair(bracketStack.top().first, ch)) {
-                        bracketStack.pop();
-                    }
-                    else {
-                        errorPositions.push_back({ ch, {lineNum, i + 1} });
-                    }
+                else {
+                    errorPositions.push_back({ ch, {lineNum, i + 1} });
                 }
             }
         }
     }
+           
 
     while (!bracketStack.empty()) {
         errorPositions.push_back({ bracketStack.top().first, bracketStack.top().second });
