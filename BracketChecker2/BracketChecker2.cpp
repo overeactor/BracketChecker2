@@ -1,4 +1,7 @@
-
+/**
+ * @file BracketChecker2.cpp
+ * @brief Implementation file for bracket validation functions.
+ */
 #include "BracketChecker2.h"
 
 
