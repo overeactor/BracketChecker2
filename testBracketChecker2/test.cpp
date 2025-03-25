@@ -1,9 +1,9 @@
 #include "pch.h"
 #include <gtest/gtest.h>
-#include "../BracketChecker2/BracketChecker2.h"  // Adjust the path if needed
-#include "../BracketChecker2/BracketChecker2.cpp"  // Adjust the path if needed
+#include "../BracketChecker2/BracketChecker2.h"  
+#include "../BracketChecker2/BracketChecker2.cpp"  
 
-// Test suite name updated to match file name
+
 TEST(testBracketChecker2, IsOpeningBracket) {
     EXPECT_TRUE(isOpeningBracket('('));
     EXPECT_TRUE(isOpeningBracket('{'));
@@ -38,7 +38,7 @@ TEST(testBracketChecker2, ReadInputFile_Valid) {
     EXPECT_TRUE(errors.empty());  
 }
 
-// Run all tests
+
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
