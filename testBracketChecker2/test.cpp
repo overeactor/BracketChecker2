@@ -28,6 +28,16 @@ TEST(testBracketChecker2, IsMatchingPair) {
     EXPECT_FALSE(isMatchingPair('{', ')'));
 }
 
+
+TEST(testBracketChecker2, ReadInputFile_Valid) {
+    std::ofstream testFile("test_valid.txt");
+    testFile << "{[()]}";  
+    testFile.close();
+
+    auto errors = read_input_file("test_valid.txt");
+    EXPECT_TRUE(errors.empty());  
+}
+
 // Run all tests
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
