@@ -39,6 +39,18 @@ TEST(testBracketChecker2, ReadInputFile_Valid) {
 }
 
 
+
+// Test read_input_file() function with unmatched brackets
+TEST(testBracketChecker2, ReadInputFile_Invalid) {
+    std::ofstream testFile("test_invalid.txt");
+    testFile << "{[(])}";  // Incorrectly matched brackets
+    testFile.close();
+
+    auto errors = read_input_file("test_invalid.txt");
+    EXPECT_FALSE(errors.empty());  // Expect errors
+}
+
+
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
