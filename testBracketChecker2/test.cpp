@@ -51,6 +51,24 @@ TEST(testBracketChecker2, ReadInputFile_Invalid) {
 }
 
 
+// Test print_result() function
+TEST(testBracketChecker2, PrintResult) {
+    std::vector<std::pair<char, std::pair<int, int>>> errors = {
+        {'(', {1, 5}}, {')', {3, 10}}
+    };
+
+    print_result("test_output.txt", errors);
+
+    std::ifstream inFile("test_output.txt");
+    std::stringstream buffer;
+    buffer << inFile.rdbuf();
+    std::string result = buffer.str();
+
+    EXPECT_NE(result.find("Unmatched brackets found"), std::string::npos);
+    EXPECT_NE(result.find("Bracket '(' at Line 1, Position 5 is unmatched."), std::string::npos);
+}
+
+
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
