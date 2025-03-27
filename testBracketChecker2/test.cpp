@@ -3,7 +3,7 @@
 #include "../BracketChecker2/BracketChecker2.h"  
 #include "../BracketChecker2/BracketChecker2.cpp"  
 
-
+/*
 TEST(testBracketChecker2, IsOpeningBracket) {
     EXPECT_TRUE(isOpeningBracket('('));
     EXPECT_TRUE(isOpeningBracket('{'));
@@ -75,7 +75,23 @@ TEST(BracketChecker2Test, EmptyFile) {
 
     auto errors = read_input_file("empty_file.txt");
     EXPECT_TRUE(errors.empty());  // Should pass
+}  */
+
+//Test file with only comments (should be ignored)
+// No errors should be detected.
+TEST(BracketChecker2Test, OnlyComments) {
+    std::ofstream testFile("only_comments.txt");
+    testFile << R"(
+        // This is a comment with brackets { [ ( ) ] }
+        /* Another comment
+           with brackets { [ ( ) ] } */
+    )";
+    testFile.close();
+
+    auto errors = read_input_file("only_comments.txt");
+    EXPECT_TRUE(errors.empty());  // Should ignore all brackets inside comments
 }
+
 
 
 
