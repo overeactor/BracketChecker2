@@ -3,7 +3,7 @@
 #include "../BracketChecker2/BracketChecker2.h"  
 #include "../BracketChecker2/BracketChecker2.cpp"  
 
-/*
+
 TEST(testBracketChecker2, IsOpeningBracket) {
     EXPECT_TRUE(isOpeningBracket('('));
     EXPECT_TRUE(isOpeningBracket('{'));
@@ -75,7 +75,7 @@ TEST(BracketChecker2Test, EmptyFile) {
 
     auto errors = read_input_file("empty_file.txt");
     EXPECT_TRUE(errors.empty());  // Should pass
-}  */
+}  
 
 //Test file with only comments (should be ignored)
 // No errors should be detected.
@@ -89,7 +89,28 @@ TEST(BracketChecker2Test, OnlyComments) {
     testFile.close();
 
     auto errors = read_input_file("only_comments.txt");
-    EXPECT_TRUE(errors.empty());  // Should ignore all brackets inside comments
+    EXPECT_TRUE(errors.empty());  // Should ignore all brackets inside comments  
+}   
+
+
+//Test deeply nested brackets and no error should be detected
+TEST(BracketChecker2Test, DeeplyNestedBrackets) {
+    std::ofstream testFile("nested_brackets.txt");
+    testFile << R"(
+        int main() {
+            if (true) {
+                while (x > 0) {
+                    for (int i = 0; i < 10; i++) {
+                        arr[i] = (i + (x * [y + (z)]));
+                    }
+                }
+            }
+        }
+    )";
+    testFile.close();
+
+    auto errors = read_input_file("nested_brackets.txt");
+    EXPECT_TRUE(errors.empty());  // Should pass
 }
 
 
