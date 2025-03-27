@@ -65,8 +65,18 @@ TEST(testBracketChecker2, PrintResult) {
     std::string result = buffer.str();
 
     EXPECT_NE(result.find("Unmatched brackets found"), std::string::npos);
-    EXPECT_NE(result.find("Bracket '(' at Line 1, Position 5 is unmatched."), std::string::npos);
+    EXPECT_NE(result.find("Bracket '(' at Line 1, Position 5 is unmatched."), std::string::npos); 
+} 
+
+//Test an empty file
+TEST(BracketChecker2Test, EmptyFile) {
+    std::ofstream testFile("empty_file.txt");
+    testFile.close();  // Create an empty file
+
+    auto errors = read_input_file("empty_file.txt");
+    EXPECT_TRUE(errors.empty());  // Should pass
 }
+
 
 
 int main(int argc, char** argv) {
