@@ -113,6 +113,23 @@ TEST(BracketChecker2Test, DeeplyNestedBrackets) {
     EXPECT_TRUE(errors.empty());  // Should pass
 }
 
+//test missing closing bracket
+//an error should be dectected
+
+TEST(BracketChecker2Test, MissingClosingBracket) {
+    std::ofstream testFile("missing_closing.txt");
+    testFile << R"(
+        int main() {
+            if (true) {
+                printf("Hello world!");
+        }
+    )";
+    testFile.close();
+
+    auto errors = read_input_file("missing_closing.txt");
+    EXPECT_FALSE(errors.empty());  // Should detect missing '}'
+}
+
 
 
 
