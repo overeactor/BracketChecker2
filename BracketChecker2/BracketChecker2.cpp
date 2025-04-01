@@ -24,7 +24,26 @@ bool isMatchingPair(char open, char close) {
 
 
 
-vector<string> read_input_file(const string& filename)
+vector<string> read_input_file(const string& filename) {
+    ifstream file(filename);
+    vector<string> lines;
+
+    if (!file) {
+        cerr << "Error: Cannot open file " << filename << endl;
+        return {};
+    }
+
+    string line;
+    while (getline(file, line)) {
+        lines.push_back(line);
+    }
+
+    file.close();
+    return lines;
+}
+
+
+
 
            
 
