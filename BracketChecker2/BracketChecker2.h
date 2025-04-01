@@ -57,6 +57,9 @@ bool isMatchingPair(char open, char close);
 
 vector<string> read_input_file(const string& filename);
 
+
+vector<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines);
+
 /**
  * @brief Outputs the result of bracket matching to a file.
  *
