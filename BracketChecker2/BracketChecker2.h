@@ -55,6 +55,12 @@ bool isClosingBracket(char ch);
 bool isMatchingPair(char open, char close);
 
 
+/**
+ * @brief Reads an input file and returns its content as a vector of strings.
+ *
+ * @param filename The name of the file to read.
+ * @return A vector containing each line of the file as a string.
+ */
 vector<string> read_input_file(const string& filename);
 
 
