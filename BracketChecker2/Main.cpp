@@ -22,6 +22,8 @@ int main() {
 
 
 	return 0;
+
+	cout << "Bracket checking complete. Results saved to " << outputFile << endl;
 }
 
 
