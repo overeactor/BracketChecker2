@@ -9,7 +9,7 @@
  /**
   * @brief The main function of the program.
   *
-  * Reads an input file, checks for unmatched brackets, and writes the results to an output file.
+  * this function Reads an input file, parses it for unmatched brackets, and writes the results to an output file.
   *
   * @return 0 on successful execution.
   */
