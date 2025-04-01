@@ -1,0 +1,188 @@
+\doxysection{Bracket\+Checker2/\+Bracket\+Checker2.h File Reference}
+\hypertarget{_bracket_checker2_8h}{}\label{_bracket_checker2_8h}\index{BracketChecker2/BracketChecker2.h@{BracketChecker2/BracketChecker2.h}}
+
+
+Header file for bracket validation functions.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for Bracket\+Checker2.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_bracket_checker2_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_bracket_checker2_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_bracket_checker2_8h_a4b3b8aa187dbfa855fda2e74c31167ef}{is\+Opening\+Bracket}} (char ch)
+\begin{DoxyCompactList}\small\item\em Checks if the given character is an opening bracket. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_bracket_checker2_8h_ac72790b62b9089fc49ff0db095d0c0ba}{is\+Closing\+Bracket}} (char ch)
+\begin{DoxyCompactList}\small\item\em Checks if the given character is a closing bracket. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_bracket_checker2_8h_a67294e9c8decb429efaf45b94dec6145}{is\+Matching\+Pair}} (char open, char close)
+\begin{DoxyCompactList}\small\item\em Checks if the given pair of brackets match. \end{DoxyCompactList}\item 
+vector$<$ pair$<$ char, pair$<$ int, int $>$ $>$ $>$ \mbox{\hyperlink{_bracket_checker2_8h_a84e3a19d542ba6c253ed5d283806688f}{read\+\_\+input\+\_\+file}} (const string \&filename)
+\begin{DoxyCompactList}\small\item\em Reads the input file and finds unmatched brackets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_bracket_checker2_8h_ae0e7a8f1250bac2b529e0fa6c9184e91}{print\+\_\+result}} (const string \&output\+Filename, const vector$<$ pair$<$ char, pair$<$ int, int $>$ $>$ $>$ \&errors)
+\begin{DoxyCompactList}\small\item\em Outputs the result of bracket matching to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for bracket validation functions. 
+
+This file contains function declarations for checking matching brackets in a given input file. It includes utility functions to determine bracket types and handle file input/output operations. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_bracket_checker2_8h_ac72790b62b9089fc49ff0db095d0c0ba}\index{BracketChecker2.h@{BracketChecker2.h}!isClosingBracket@{isClosingBracket}}
+\index{isClosingBracket@{isClosingBracket}!BracketChecker2.h@{BracketChecker2.h}}
+\doxysubsubsection{\texorpdfstring{isClosingBracket()}{isClosingBracket()}}
+{\footnotesize\ttfamily \label{_bracket_checker2_8h_ac72790b62b9089fc49ff0db095d0c0ba} 
+bool is\+Closing\+Bracket (\begin{DoxyParamCaption}\item[{char}]{ch}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the given character is a closing bracket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & The character to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if it is a closing bracket, otherwise false. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_bracket_checker2_8h_ac72790b62b9089fc49ff0db095d0c0ba_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_bracket_checker2_8h_a67294e9c8decb429efaf45b94dec6145}\index{BracketChecker2.h@{BracketChecker2.h}!isMatchingPair@{isMatchingPair}}
+\index{isMatchingPair@{isMatchingPair}!BracketChecker2.h@{BracketChecker2.h}}
+\doxysubsubsection{\texorpdfstring{isMatchingPair()}{isMatchingPair()}}
+{\footnotesize\ttfamily \label{_bracket_checker2_8h_a67294e9c8decb429efaf45b94dec6145} 
+bool is\+Matching\+Pair (\begin{DoxyParamCaption}\item[{char}]{open}{, }\item[{char}]{close}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the given pair of brackets match. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em open} & The opening bracket character. \\
+\hline
+{\em close} & The closing bracket character. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if they form a valid pair, otherwise false. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{_bracket_checker2_8h_a67294e9c8decb429efaf45b94dec6145_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_bracket_checker2_8h_a4b3b8aa187dbfa855fda2e74c31167ef}\index{BracketChecker2.h@{BracketChecker2.h}!isOpeningBracket@{isOpeningBracket}}
+\index{isOpeningBracket@{isOpeningBracket}!BracketChecker2.h@{BracketChecker2.h}}
+\doxysubsubsection{\texorpdfstring{isOpeningBracket()}{isOpeningBracket()}}
+{\footnotesize\ttfamily \label{_bracket_checker2_8h_a4b3b8aa187dbfa855fda2e74c31167ef} 
+bool is\+Opening\+Bracket (\begin{DoxyParamCaption}\item[{char}]{ch}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the given character is an opening bracket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & The character to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if it is an opening bracket, otherwise false. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_bracket_checker2_8h_a4b3b8aa187dbfa855fda2e74c31167ef_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_bracket_checker2_8h_ae0e7a8f1250bac2b529e0fa6c9184e91}\index{BracketChecker2.h@{BracketChecker2.h}!print\_result@{print\_result}}
+\index{print\_result@{print\_result}!BracketChecker2.h@{BracketChecker2.h}}
+\doxysubsubsection{\texorpdfstring{print\_result()}{print\_result()}}
+{\footnotesize\ttfamily \label{_bracket_checker2_8h_ae0e7a8f1250bac2b529e0fa6c9184e91} 
+void print\+\_\+result (\begin{DoxyParamCaption}\item[{const string \&}]{output\+Filename}{, }\item[{const vector$<$ pair$<$ char, pair$<$ int, int $>$ $>$ $>$ \&}]{errors}{}\end{DoxyParamCaption})}
+
+
+
+Outputs the result of bracket matching to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+Filename} & The name of the output file. \\
+\hline
+{\em errors} & A vector containing unmatched brackets with their positions. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{_bracket_checker2_8h_ae0e7a8f1250bac2b529e0fa6c9184e91_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_bracket_checker2_8h_a84e3a19d542ba6c253ed5d283806688f}\index{BracketChecker2.h@{BracketChecker2.h}!read\_input\_file@{read\_input\_file}}
+\index{read\_input\_file@{read\_input\_file}!BracketChecker2.h@{BracketChecker2.h}}
+\doxysubsubsection{\texorpdfstring{read\_input\_file()}{read\_input\_file()}}
+{\footnotesize\ttfamily \label{_bracket_checker2_8h_a84e3a19d542ba6c253ed5d283806688f} 
+vector$<$ pair$<$ char, pair$<$ int, int $>$ $>$ $>$ read\+\_\+input\+\_\+file (\begin{DoxyParamCaption}\item[{const string \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Reads the input file and finds unmatched brackets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing unmatched brackets with their positions. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{_bracket_checker2_8h_a84e3a19d542ba6c253ed5d283806688f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{_bracket_checker2_8h_a84e3a19d542ba6c253ed5d283806688f_icgraph}
+\end{center}
+\end{figure}
