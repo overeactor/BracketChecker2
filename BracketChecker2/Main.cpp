@@ -21,9 +21,11 @@ int main() {
 	vector<pair<char, pair<int, int>>> errors = parse_brackets(lines);
 
 
+	cout << "Bracket checking complete. Results saved to " << outputFile << endl;
+
 	return 0;
 
-	cout << "Bracket checking complete. Results saved to " << outputFile << endl;
+	
 }
 
 
