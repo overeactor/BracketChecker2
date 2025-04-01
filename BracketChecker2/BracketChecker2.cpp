@@ -43,7 +43,70 @@ vector<string> read_input_file(const string& filename) {
 }
 
 
+vector<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines) {
+    stack<pair<char, pair<int, int>>> bracketStack;
+    vector<pair<char, pair<int, int>>> errorPositions;
+    bool inBlockComment = false;
 
+    for (size_t lineNum = 0; lineNum < lines.size(); lineNum++) {
+        string line = lines[lineNum];
+        bool inLineComment = false;
+        bool inString = false;
+        char stringDelimiter = '\0';
+
+        for (size_t i = 0; i < line.size(); i++) {
+            char ch = line[i];
+
+            // Handle comments
+            if (i < line.size() - 1) {
+                if (!inBlockComment && line[i] == '/' && line[i + 1] == '/') {
+                    inLineComment = true;
+                }
+                else if (!inLineComment && !inBlockComment && line[i] == '/' && line[i + 1] == '*') {
+                    inBlockComment = true;
+                    i++; continue;
+                }
+                else if (inBlockComment && line[i] == '*' && line[i + 1] == '/') {
+                    inBlockComment = false;
+                    i++; continue;
+                }
+            }
+
+            // Ignore characters inside comments
+            if (inBlockComment || inLineComment) {
+                continue;
+            }
+
+            // Handle string literals
+            if (!inString && (ch == '"' || ch == '\'')) {
+                inString = true;
+                stringDelimiter = ch;
+                continue;
+            }
+            else if (inString && ch == stringDelimiter) {
+                inString = false;
+                continue;
+            }
+
+            // Ignore brackets inside strings
+            if (inString) {
+                continue;
+            }
+
+            // Process brackets only when NOT inside a string or comment
+            if (isOpeningBracket(ch)) {
+                bracketStack.push({ ch, {lineNum + 1, i + 1} });
+            }
+            else if (isClosingBracket(ch)) {
+                if (!bracketStack.empty() && isMatchingPair(bracketStack.top().first, ch)) {
+                    bracketStack.pop();
+                }
+                else {
+                    errorPositions.push_back({ ch, {lineNum + 1, i + 1} });
+                }
+            }
+        }
+    }
 
            
 
@@ -52,7 +115,7 @@ vector<string> read_input_file(const string& filename) {
         bracketStack.pop();
     }
 
-    file.close();
+    
     return errorPositions;
 }
 
