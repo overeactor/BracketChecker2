@@ -54,13 +54,8 @@ bool isClosingBracket(char ch);
  */
 bool isMatchingPair(char open, char close);
 
-/**
- * @brief Reads the input file and finds unmatched brackets.
- *
- * @param filename The name of the file to read.
- * @return A vector containing unmatched brackets with their positions.
- */
-vector<pair<char, pair<int, int>>> read_input_file(const string& filename);
+
+vector<string> read_input_file(const string& filename);
 
 /**
  * @brief Outputs the result of bracket matching to a file.
