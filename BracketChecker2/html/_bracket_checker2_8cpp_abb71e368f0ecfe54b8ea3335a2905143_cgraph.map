@@ -1,0 +1,9 @@
+<map id="parse_brackets" name="parse_brackets">
+<area shape="rect" id="Node000001" title="Parses the given lines of text to detect unmatched brackets." alt="" coords="5,56,116,83"/>
+<area shape="rect" id="Node000002" href="$_bracket_checker2_8cpp.html#ac72790b62b9089fc49ff0db095d0c0ba" title="Checks if the given character is a closing bracket." alt="" coords="166,5,286,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,53,165,35,166,40,108,58"/>
+<area shape="rect" id="Node000003" href="$_bracket_checker2_8cpp.html#a67294e9c8decb429efaf45b94dec6145" title="Checks if the given pair of brackets match." alt="" coords="172,56,280,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,67,157,67,157,72,116,72"/>
+<area shape="rect" id="Node000004" href="$_bracket_checker2_8cpp.html#a4b3b8aa187dbfa855fda2e74c31167ef" title="Checks if the given character is an opening bracket." alt="" coords="164,107,288,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="108,81,166,99,165,104,106,86"/>
+</map>
