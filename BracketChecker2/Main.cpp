@@ -17,8 +17,9 @@ int main() {
 	string inputFile = "code.txt";
 	string outputFile = "result.txt";
 
-	vector<pair<char, pair<int, int>>> errors = read_input_file(inputFile);
-	print_result(outputFile, errors);
+	vector<string> lines = read_input_file(inputFile);
+	vector<pair<char, pair<int, int>>> errors = parse_brackets(lines);
+
 
 	return 0;
 }
