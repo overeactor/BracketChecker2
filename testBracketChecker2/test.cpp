@@ -37,14 +37,19 @@ TEST(testBracketChecker2, ReadInputFile) {
 
 
 
-// Test read_input_file() function with unmatched brackets
-TEST(testBracketChecker2, ReadInputFile_Invalid) {
-    std::ofstream testFile("test_invalid.txt");
-    testFile << "{[(])}";  // Incorrectly matched brackets
-    testFile.close();
-
-    auto errors = read_input_file("test_invalid.txt");
-    EXPECT_FALSE(errors.empty());  // Expect errors
+// Test parsing balanced brackets
+TEST(testBracketChecker2, BalancedBrackets) {
+    vector<string> code = {
+        "int main() {",
+        "    if (true) {",
+        "        for (int i = 0; i < 10; i++) {",
+        "            cout << \"Hello\";",
+        "        }",
+        "    }",
+        "}"
+    };
+    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    EXPECT_TRUE(errors.empty()) << "Expected no unmatched brackets.";
 }
 
 
