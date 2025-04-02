@@ -31,8 +31,12 @@ TEST(testBracketChecker2, IsMatchingPair) {
 
 TEST(testBracketChecker2, ReadInputFile) {
     vector<string> lines = read_input_file("test_input.txt");
+
+    cout << "Number of lines read: " << lines.size() << endl; // Debug print
+
     EXPECT_FALSE(lines.empty()) << "File should be read successfully.";
 }
+
 
 
 
