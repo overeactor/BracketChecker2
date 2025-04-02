@@ -66,6 +66,22 @@ TEST(testBracketChecker2, UnbalancedBrackets) {
 }
 
 
+// Test ignoring brackets inside comments and strings
+TEST(testBracketChecker2, IgnoresCommentsAndStrings) {
+    vector<string> code = {
+        "int main() {", // Valid opening
+        "    string s = \"{ not a bracket }\";", // Inside string
+        "    char c = '{'; // Character constant", // Inside char
+        "    /* block comment with [ brackets ] */", // Block comment
+        "    // single-line comment with { bracket", // Single-line comment
+        "    return 0;",
+        "}" // Valid closing
+    };
+    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    EXPECT_TRUE(errors.empty()) << "Expected no unmatched brackets, but some were found.";
+}
+
+
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
