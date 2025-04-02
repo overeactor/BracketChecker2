@@ -53,7 +53,17 @@ TEST(testBracketChecker2, BalancedBrackets) {
 }
 
 
-
+// Test detecting unbalanced brackets
+TEST(testBracketChecker2, UnbalancedBrackets) {
+    vector<string> code = {
+        "int main() {",
+        "    if (true) {",
+        "        cout << \"Hello\";",
+        "}" // Missing closing '}'
+    };
+    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    EXPECT_FALSE(errors.empty()) << "Expected unmatched brackets.";
+}
 
 
 
