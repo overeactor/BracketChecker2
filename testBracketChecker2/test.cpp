@@ -92,6 +92,16 @@ TEST(testBracketChecker2, EmptyFile) {
     EXPECT_TRUE(errors.empty()) << "Expected no errors for an empty file.";
 }
 
+//test an empty file
+TEST(testBrscketChecker2, OnlyComments) {
+    vector<string> code = {
+        "// This is a comment with { brackets }",
+        "/* multi-line comment with [ brackets ] isnside */"
+    };
+    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    EXPECT_TRUE(errors.empty()) << "expected no errors for a file with only comments. ";
+}
+
 
 
 int main(int argc, char** argv) {
