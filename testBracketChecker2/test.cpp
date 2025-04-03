@@ -85,6 +85,13 @@ TEST(testBracketChecker2, IgnoresCommentsAndStrings) {
     EXPECT_TRUE(errors.empty()) << "Expected no unmatched brackets, but some were found.";
 }
 
+// Test an empty file
+TEST(testBracketChecker2, EmptyFile) {
+    vector<string> code = {};
+    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    EXPECT_TRUE(errors.empty()) << "Expected no errors for an empty file.";
+}
+
 
 
 int main(int argc, char** argv) {
