@@ -102,6 +102,16 @@ TEST(testBrscketChecker2, OnlyComments) {
     EXPECT_TRUE(errors.empty()) << "expected no errors for a file with only comments. ";
 }
 
+// test only white space
+TEST(testBracketChecker2, onlyWhitespace) {
+    vector<string> code = {
+        "   ",
+        "\t\t"
+    };
+    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    EXPECT_TRUE(errors.empty()) << "Expected no errors for a file with only white spaces";
+}
+
 
 
 int main(int argc, char** argv) {
