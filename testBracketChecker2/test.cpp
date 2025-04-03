@@ -113,6 +113,22 @@ TEST(testBracketChecker2, onlyWhitespace) {
 }
 
 
+// Test ignoring brackets inside string literals
+TEST(testBracketChecker2, IgnoresBracketsInsideStringLiterals) {
+    vector<string> code = {
+        "int main() {",
+        "    string str = \"This is a string with brackets ( inside  here\";", // Inside string
+        "    return 0;",
+        "}"
+    };
+    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+
+    // Since the brackets inside the string should be ignored, there should be no errors
+    EXPECT_TRUE(errors.empty()) << "The program incorrectly detected unmatched brackets inside string literals.";
+}
+
+
+
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
