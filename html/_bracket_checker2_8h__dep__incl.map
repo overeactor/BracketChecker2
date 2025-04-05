@@ -1,0 +1,7 @@
+<map id="BracketChecker2/BracketChecker2.h" name="BracketChecker2/BracketChecker2.h">
+<area shape="rect" id="Node000001" title="Header file for bracket validation functions." alt="" coords="132,5,371,32"/>
+<area shape="rect" id="Node000002" href="$_bracket_checker2_8cpp.html" title="Implementation file for bracket validation functions." alt="" coords="5,80,258,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,43,154,82,151,77,216,38"/>
+<area shape="rect" id="Node000003" href="$_main_8cpp.html" title="Main entry point for the Bracket Checker program." alt="" coords="282,80,461,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="287,38,352,77,349,82,284,43"/>
+</map>
