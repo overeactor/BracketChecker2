@@ -88,6 +88,7 @@ Generating caller graph for function isMatchingPair
 Generating caller graph for function isOpeningBracket
 Generating call graph for function parse_brackets
 Generating caller graph for function parse_brackets
+Generating caller graph for function print_result
 Generating caller graph for function read_input_file
 Generating docs for file BracketChecker2/BracketChecker2.h...
 Generating caller graph for function isClosingBracket
@@ -95,6 +96,7 @@ Generating caller graph for function isMatchingPair
 Generating caller graph for function isOpeningBracket
 Generating call graph for function parse_brackets
 Generating caller graph for function parse_brackets
+Generating caller graph for function print_result
 Generating caller graph for function read_input_file
 Generating docs for file BracketChecker2/Main.cpp...
 Generating call graph for function main
@@ -127,41 +129,8 @@ finalizing index lists...
 writing tag file...
 Running plantuml with JAVA...
 Running dot...
-Generating dot graphs using 17 parallel threads...
-Running dot for graph 1/26
-Running dot for graph 2/26
-Running dot for graph 3/26
-Running dot for graph 4/26
-Running dot for graph 5/26
-Running dot for graph 6/26
-Running dot for graph 7/26
-Running dot for graph 8/26
-Running dot for graph 9/26
-Running dot for graph 10/26
-Running dot for graph 11/26
-Running dot for graph 12/26
-Running dot for graph 13/26
-Running dot for graph 14/26
-Running dot for graph 15/26
-Running dot for graph 16/26
-Running dot for graph 17/26
-Running dot for graph 18/26
-Running dot for graph 19/26
-Running dot for graph 20/26
-Running dot for graph 21/26
-Running dot for graph 22/26
-Running dot for graph 23/26
-Running dot for graph 24/26
-Running dot for graph 25/26
-Running dot for graph 26/26
-Patching output file 1/6
-Patching output file 2/6
-Patching output file 3/6
-Patching output file 4/6
-Patching output file 5/6
-Patching output file 6/6
 type lookup cache used 7/65536 hits=6 misses=7
-symbol lookup cache used 24/65536 hits=8 misses=24
+symbol lookup cache used 25/65536 hits=8 misses=25
 finished...
 
 *** Doxygen has finished
