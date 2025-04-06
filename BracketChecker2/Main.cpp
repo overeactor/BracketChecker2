@@ -9,6 +9,12 @@
 
 using namespace std;
 
+
+bool has_cpp_extension(const string& filename) {
+	size_t dotPos = filename.rfind('.');
+	return dotPos != string::npos && filename.substr(dotPos) == ".cpp";
+}
+
 int main() {
 	string inputFile = "code.txt";
 	string outputFile = "result.txt";
