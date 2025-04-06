@@ -15,20 +15,31 @@ bool has_cpp_extension(const string& filename) {
 	return dotPos != string::npos && filename.substr(dotPos) == ".cpp";
 }
 
-int main() {
-	string inputFile = "code.txt";
-	string outputFile = "result.txt";
 
-	vector<string> lines = read_input_file(inputFile);
-	vector<pair<char, pair<int, int>>> errors = parse_brackets(lines);
 
-	print_result(outputFile, errors);
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        cerr << "Error: No input file provided. Usage: ./program <filename.cpp>" << endl;
+        return 1;
+    }
 
-	cout << "Bracket checking complete. Results saved to " << outputFile << endl;
+    string inputFile = argv[1];
 
-	return 0;
+    if (!has_cpp_extension(inputFile)) {
+        cerr << "Error: Invalid file extension. Please provide a .cpp file." << endl;
+        return 1;
+    }
 
-	
+    string outputFile = "result.txt";
+
+    vector<string> lines = read_input_file(inputFile);
+    vector<pair<char, pair<int, int>>> errors = parse_brackets(lines);
+
+    print_result(outputFile, errors);
+
+    cout << "Bracket checking complete. Results saved to " << outputFile << endl;
+
+    return 0;
 }
 
 
