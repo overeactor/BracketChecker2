@@ -43,7 +43,7 @@ inline bool isOpeningBracket(char ch);
  * @param ch The character to check.
  * @return True if it is a closing bracket, otherwise false.
  */
-bool isClosingBracket(char ch);
+inline bool isClosingBracket(char ch);
 
 /**
  * @brief Checks if the given pair of brackets match.
