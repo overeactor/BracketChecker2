@@ -52,7 +52,7 @@ inline bool isClosingBracket(char ch);
  * @param close The closing bracket character.
  * @return True if they form a valid pair, otherwise false.
  */
-bool isMatchingPair(char open, char close);
+inline bool isMatchingPair(char open, char close);
 
 
 /**
