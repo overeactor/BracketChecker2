@@ -16,14 +16,10 @@ bool has_cpp_extension(const string& filename) {
 }
 
 
-
-int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        cerr << "Error: No input file provided. Usage: ./program <filename.cpp>" << endl;
-        return 1;
-    }
-
-    string inputFile = argv[1];
+int main() {
+    string inputFile;
+    cout << "Enter the input filename (.cpp): ";
+    cin >> inputFile;
 
     if (!has_cpp_extension(inputFile)) {
         cerr << "Error: Invalid file extension. Please provide a .cpp file." << endl;
@@ -41,5 +37,4 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
-
 
