@@ -93,7 +93,7 @@ TEST(testBracketChecker2, EmptyFile) {
 }
 
 //test an empty file
-TEST(testBrscketChecker2, OnlyComments) {
+TEST(testBracketChecker2, OnlyComments) {
     vector<string> code = {
         "// This is a comment with { brackets }",
         "/* multi-line comment with [ brackets ] isnside */"
