@@ -34,7 +34,7 @@ using namespace std;
  * @param ch The character to check.
  * @return True if it is an opening bracket, otherwise false.
  */
-bool isOpeningBracket(char ch);
+inline bool isOpeningBracket(char ch);
 
 
 /**
