@@ -1,8 +1,14 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <utility>
+#include <fstream>
 
 
 #include "BracketChecker2.h"
 
- 
+using namespace std;
+
 int main() {
 	string inputFile = "code.txt";
 	string outputFile = "result.txt";
