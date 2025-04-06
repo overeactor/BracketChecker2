@@ -5,18 +5,15 @@
 #include "BracketChecker2.h"
 
 
-bool isOpeningBracket(char ch) {
+inline bool isOpeningBracket(char ch) {
     return ch == '(' || ch == '[' || ch == '{';
 }
 
-
-
-bool isClosingBracket(char ch) {
+inline bool isClosingBracket(char ch) {
     return ch == ')' || ch == ']' || ch == '}';
 }
 
-
-bool isMatchingPair(char open, char close) {
+inline bool isMatchingPair(char open, char close) {
     return (open == '(' && close == ')') ||
         (open == '[' && close == ']') ||
         (open == '{' && close == '}');
