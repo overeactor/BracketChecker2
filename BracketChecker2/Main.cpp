@@ -1,4 +1,20 @@
 /**
+ * @mainpage BracketChecker2
+ *
+ * @section intro_sec Overview
+ * BracketChecker2 is a command-line C++ tool that scans source code files
+ * for unmatched or incorrectly paired brackets. It supports detection of:
+ * - Parentheses `()`
+ * - Curly braces `{}`
+ * - Square brackets `[]`
+ *
+ * @section author_sec Author
+ * Developed by [Bebahani A.]
+ */
+
+
+
+/**
  * @file main.cpp
  * @brief Entry point for the BracketChecker2 program.
  *
