@@ -25,13 +25,22 @@ vector<string> read_input_file(const string& filename) {
     ifstream file(filename);
     vector<string> lines;
 
-    if (!file) {
-        cerr << "Error: Cannot open file " << filename << endl;
-        return {};
-    }
-
     string line;
+    int lineCount = 0;
+
     while (getline(file, line)) {
+        lineCount++;
+
+        if (lineCount > MAX_LINE_COUNT) {
+            cerr << "Error: File exceeds maximum allowed lines (" << MAX_LINE_COUNT << ")." << endl;
+            return {};
+        }
+
+        if (line.length() > MAX_LINE_LENGTH) {
+            cerr << "Error: Line " << lineCount << " exceeds max allowed length (" << MAX_LINE_LENGTH << ")." << endl;
+            return {};
+        }
+
         lines.push_back(line);
     }
 
