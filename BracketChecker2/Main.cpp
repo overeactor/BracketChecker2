@@ -69,7 +69,11 @@ int main() {
 
     string outputFile = "result.txt";
 
-    vector<string> lines = read_input_file(inputFile); ///< Read lines from the input file
+    vector<string> lines = read_input_file(inputFile);
+    if (lines.empty()) {
+        cerr << "Parsing aborted due to input errors or constraint violation." << endl;
+        return 1;
+    }
     vector<pair<char, pair<int, int>>> errors = parse_brackets(lines); ///< Analyze bracket errors
 
     print_result(outputFile, errors); ///< Write results to the output file
