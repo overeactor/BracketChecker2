@@ -128,6 +128,24 @@ TEST(testBracketChecker2, IgnoresBracketsInsideStringLiterals) {
 }
 
 
+TEST(BracketChecker2Test, MinimalNestedMismatch_Vector) {
+    vector<string> input = {
+        "({) }"
+    };
+
+    vector<pair<char, pair<int, int>>> expected = {
+        {')', {1, 3}},  // unmatched due to stack mismatch
+        {'(', {1, 1}}   // never closed
+    };
+
+    auto actual = parse_brackets(input);
+
+    ASSERT_EQ(expected.size(), actual.size());
+
+    for (size_t i = 0; i < expected.size(); ++i) {
+        EXPECT_EQ(expected[i], actual[i]) << "Mismatch at index " << i;
+    }
+}
 
 
 int main(int argc, char** argv) {
