@@ -19,6 +19,11 @@
 #include <vector>
 
 
+
+
+
+
+
  /**
   * @brief Checks if the given character is an opening bracket.
   *
@@ -26,6 +31,13 @@
   * @return True if it is an opening bracket, otherwise false.
   */
 using namespace std;
+
+
+
+ // Constraints
+const int MAX_LINE_COUNT = 10000;
+const int MAX_LINE_LENGTH = 1000;
+
 
 
 /**
