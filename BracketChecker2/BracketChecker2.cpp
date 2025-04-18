@@ -22,6 +22,11 @@ inline bool isMatchingPair(char open, char close) {
 
 
 vector<string> read_input_file(const string& filename) {
+
+
+    // 1) Read code from file
+    // 2) Validate code bool validate_code(vector<string> code, set<code_error> & errors);
+
     ifstream file(filename);
     vector<string> lines;
 
@@ -49,9 +54,9 @@ vector<string> read_input_file(const string& filename) {
 }
 
 
-vector<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines) {
+set<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines) {
     stack<pair<char, pair<int, int>>> bracketStack;
-    vector<pair<char, pair<int, int>>> errorPositions;
+    set<pair<char, pair<int, int>>> errorPositions;
     bool inBlockComment = false;
 
     for (size_t lineNum = 0; lineNum < lines.size(); lineNum++) {
@@ -101,31 +106,29 @@ vector<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines) {
 
             // Process brackets only when NOT inside a string or comment
             if (isOpeningBracket(ch)) {
-                bracketStack.push({ ch, {lineNum + 1, i + 1} });
+                bracketStack.push({ ch, {static_cast<int>(lineNum + 1), static_cast<int>(i + 1)} });
             }
             else if (isClosingBracket(ch)) {
                 if (!bracketStack.empty() && isMatchingPair(bracketStack.top().first, ch)) {
                     bracketStack.pop();
                 }
                 else {
-                    errorPositions.push_back({ ch, {lineNum + 1, i + 1} });
+                    errorPositions.insert({ ch, {static_cast<int>(lineNum + 1), static_cast<int>(i + 1)} });
                 }
             }
         }
     }
 
-           
-
     while (!bracketStack.empty()) {
-        errorPositions.push_back({ bracketStack.top().first, bracketStack.top().second });
+        errorPositions.insert(bracketStack.top());
         bracketStack.pop();
     }
 
-    
     return errorPositions;
 }
 
-void print_result(const string& outputFilename, const vector<pair<char, pair<int, int>>>& errors) {
+
+void print_result(const string& outputFilename, const set<pair<char, pair<int, int>>>& errors) {
     ofstream outputFile(outputFilename);
     if (!outputFile) {
         cerr << "Error: Cannot open output file " << outputFilename << endl;
