@@ -74,9 +74,10 @@ int main() {
         cerr << "Parsing aborted due to input errors or constraint violation." << endl;
         return 1;
     }
-    vector<pair<char, pair<int, int>>> errors = parse_brackets(lines); ///< Analyze bracket errors
-
+    
+    set<pair<char, pair<int, int>>> errors = parse_brackets(lines); ///< Analyze bracket errors
     print_result(outputFile, errors); ///< Write results to the output file
+
 
     cout << "Bracket checking complete. Results saved to " << outputFile << endl;
 
