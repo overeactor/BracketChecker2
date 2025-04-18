@@ -17,7 +17,7 @@
 #include <stack>
 #include <string>
 #include <vector>
-
+#include <set>
 
 
 
@@ -38,7 +38,15 @@ using namespace std;
 const int MAX_LINE_COUNT = 10000;
 const int MAX_LINE_LENGTH = 1000;
 
+/*
+enum BracketErrorType {};
 
+struct BracketError
+{
+
+};
+
+*/
 
 /**
  * @brief Checks if the given character is an opening bracket.
@@ -82,7 +90,8 @@ vector<string> read_input_file(const string& filename);
  * @param lines A vector of strings representing the lines of code.
  * @return A vector of unmatched brackets with their positions (line and column).
  */
-vector<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines);
+set<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines);
+
 
 /**
  * @brief Outputs the result of bracket matching to a file.
@@ -90,7 +99,8 @@ vector<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines);
  * @param outputFilename The name of the output file.
  * @param errors A vector containing unmatched brackets with their positions.
  */
-void print_result(const string& outputFilename, const vector<pair<char, pair<int, int>>>& errors);
+void print_result(const string& outputFilename, const set<pair<char, pair<int, int>>>& errors);
+
 
 
 #endif // BRACKETCHECKER2_H
