@@ -1,8 +1,10 @@
 #include "pch.h"
 #include <gtest/gtest.h>
+#include <set>
 #include "../BracketChecker2/BracketChecker2.h"  
 #include "../BracketChecker2/BracketChecker2.cpp"  
 
+using namespace std;
 
 TEST(testBracketChecker2, IsOpeningBracket) {
     EXPECT_TRUE(isOpeningBracket('('));
@@ -28,20 +30,11 @@ TEST(testBracketChecker2, IsMatchingPair) {
     EXPECT_FALSE(isMatchingPair('{', ')'));
 }
 
-
 TEST(testBracketChecker2, ReadInputFile) {
     vector<string> lines = read_input_file("test_input.txt");
-
-    cout << "Number of lines read: " << lines.size() << endl; // Debug print
-
     EXPECT_FALSE(lines.empty()) << "File should be read successfully.";
 }
 
-
-
-
-
-// Test parsing balanced brackets
 TEST(testBracketChecker2, BalancedBrackets) {
     vector<string> code = {
         "int main() {",
@@ -52,12 +45,10 @@ TEST(testBracketChecker2, BalancedBrackets) {
         "    }",
         "}"
     };
-    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    set<pair<char, pair<int, int>>> errors = parse_brackets(code);
     EXPECT_TRUE(errors.empty()) << "Expected no unmatched brackets.";
 }
 
-
-// Test detecting unbalanced brackets
 TEST(testBracketChecker2, UnbalancedBrackets) {
     vector<string> code = {
         "int main() {",
@@ -65,12 +56,10 @@ TEST(testBracketChecker2, UnbalancedBrackets) {
         "        cout << \"Hello\";",
         "}" // Missing closing '}'
     };
-    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    set<pair<char, pair<int, int>>> errors = parse_brackets(code);
     EXPECT_FALSE(errors.empty()) << "Expected unmatched brackets.";
 }
 
-
-// Test ignoring brackets inside comments and strings
 TEST(testBracketChecker2, IgnoresCommentsAndStrings) {
     vector<string> code = {
         "int main() {", // Valid opening
@@ -81,39 +70,34 @@ TEST(testBracketChecker2, IgnoresCommentsAndStrings) {
         "    return 0;",
         "}" // Valid closing
     };
-    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    set<pair<char, pair<int, int>>> errors = parse_brackets(code);
     EXPECT_TRUE(errors.empty()) << "Expected no unmatched brackets, but some were found.";
 }
 
-// Test an empty file
 TEST(testBracketChecker2, EmptyFile) {
     vector<string> code = {};
-    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    set<pair<char, pair<int, int>>> errors = parse_brackets(code);
     EXPECT_TRUE(errors.empty()) << "Expected no errors for an empty file.";
 }
 
-//test an empty file
 TEST(testBracketChecker2, OnlyComments) {
     vector<string> code = {
         "// This is a comment with { brackets }",
-        "/* multi-line comment with [ brackets ] isnside */"
+        "/* multi-line comment with [ brackets ] inside */"
     };
-    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
-    EXPECT_TRUE(errors.empty()) << "expected no errors for a file with only comments. ";
+    set<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    EXPECT_TRUE(errors.empty()) << "Expected no errors for a file with only comments.";
 }
 
-// test only white space
 TEST(testBracketChecker2, onlyWhitespace) {
     vector<string> code = {
         "   ",
         "\t\t"
     };
-    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
+    set<pair<char, pair<int, int>>> errors = parse_brackets(code);
     EXPECT_TRUE(errors.empty()) << "Expected no errors for a file with only white spaces";
 }
 
-
-// Test ignoring brackets inside string literals
 TEST(testBracketChecker2, IgnoresBracketsInsideStringLiterals) {
     vector<string> code = {
         "int main() {",
@@ -121,32 +105,23 @@ TEST(testBracketChecker2, IgnoresBracketsInsideStringLiterals) {
         "    return 0;",
         "}"
     };
-    vector<pair<char, pair<int, int>>> errors = parse_brackets(code);
-
-    // Since the brackets inside the string should be ignored, there should be no errors
+    set<pair<char, pair<int, int>>> errors = parse_brackets(code);
     EXPECT_TRUE(errors.empty()) << "The program incorrectly detected unmatched brackets inside string literals.";
 }
 
-
-TEST(BracketChecker2Test, MinimalNestedMismatch_Vector) {
+TEST(BracketChecker2Test, MinimalNestedMismatch_Set) {
     vector<string> input = {
         "({) }"
     };
 
-    vector<pair<char, pair<int, int>>> expected = {
-        {')', {1, 3}},  // unmatched due to stack mismatch
-        {'(', {1, 1}}   // never closed
+    set<pair<char, pair<int, int>>> expected = {
+        {')', {1, 3}},
+        {'(', {1, 1}}
     };
 
     auto actual = parse_brackets(input);
-
-    ASSERT_EQ(expected.size(), actual.size());
-
-    for (size_t i = 0; i < expected.size(); ++i) {
-        EXPECT_EQ(expected[i], actual[i]) << "Mismatch at index " << i;
-    }
+    EXPECT_EQ(expected, actual);
 }
-
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
