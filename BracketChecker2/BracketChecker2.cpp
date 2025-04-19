@@ -54,9 +54,10 @@ vector<string> read_input_file(const string& filename) {
 }
 
 
-set<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines) {
+// Parses brackets in the code lines and identifies unmatched or wrong ones
+set<BracketError> parse_brackets(const vector<string>& lines) {
     stack<pair<char, pair<int, int>>> bracketStack;
-    set<pair<char, pair<int, int>>> errorPositions;
+    set<BracketError> errorPositions;
     bool inBlockComment = false;
 
     for (size_t lineNum = 0; lineNum < lines.size(); lineNum++) {
@@ -68,7 +69,7 @@ set<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines) {
         for (size_t i = 0; i < line.size(); i++) {
             char ch = line[i];
 
-            // Handle comments
+            // Handle comment blocks and line comments
             if (i < line.size() - 1) {
                 if (!inBlockComment && line[i] == '/' && line[i + 1] == '/') {
                     inLineComment = true;
@@ -83,10 +84,7 @@ set<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines) {
                 }
             }
 
-            // Ignore characters inside comments
-            if (inBlockComment || inLineComment) {
-                continue;
-            }
+            if (inBlockComment || inLineComment) continue;
 
             // Handle string literals
             if (!inString && (ch == '"' || ch == '\'')) {
@@ -99,12 +97,9 @@ set<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines) {
                 continue;
             }
 
-            // Ignore brackets inside strings
-            if (inString) {
-                continue;
-            }
+            if (inString) continue;
 
-            // Process brackets only when NOT inside a string or comment
+            // Bracket validation logic
             if (isOpeningBracket(ch)) {
                 bracketStack.push({ ch, {static_cast<int>(lineNum + 1), static_cast<int>(i + 1)} });
             }
@@ -113,14 +108,16 @@ set<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines) {
                     bracketStack.pop();
                 }
                 else {
-                    errorPositions.insert({ ch, {static_cast<int>(lineNum + 1), static_cast<int>(i + 1)} });
+                    errorPositions.insert({ ch, static_cast<int>(lineNum + 1), static_cast<int>(i + 1), WRONG_BRACKET });
                 }
             }
         }
     }
 
+    // Remaining opening brackets are unmatched
     while (!bracketStack.empty()) {
-        errorPositions.insert(bracketStack.top());
+        auto top = bracketStack.top();
+        errorPositions.insert({ top.first, top.second.first, top.second.second, UNMATCHED_BRACKET });
         bracketStack.pop();
     }
 
@@ -128,7 +125,7 @@ set<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines) {
 }
 
 
-void print_result(const string& outputFilename, const set<pair<char, pair<int, int>>>& errors) {
+void print_result(const string& outputFilename, const set<BracketError>& errors) {
     ofstream outputFile(outputFilename);
     if (!outputFile) {
         cerr << "Error: Cannot open output file " << outputFilename << endl;
@@ -141,8 +138,25 @@ void print_result(const string& outputFilename, const set<pair<char, pair<int, i
     else {
         outputFile << "Unmatched brackets found: " << endl;
         for (const auto& error : errors) {
-            outputFile << "Bracket '" << error.first << "' at Line " << error.second.first
-                << ", Position " << error.second.second << " is unmatched." << endl;
+            outputFile << "Bracket '" << error.bracket << "' at Line " << error.line
+                << ", Column " << error.column << " — ";
+
+            switch (error.type) {
+            case WRONG_BRACKET:
+                outputFile << "Wrong closing bracket.";
+                break;
+            case UNMATCHED_BRACKET:
+                outputFile << "Unmatched opening bracket.";
+                break;
+            case TOO_LONG_PROGRAM:
+                outputFile << "File exceeds maximum line count.";
+                break;
+            case TOO_LONG_LINE:
+                outputFile << "Line exceeds maximum allowed length.";
+                break;
+            }
+
+            outputFile << endl;
         }
     }
 
