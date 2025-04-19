@@ -57,30 +57,30 @@ bool has_cpp_extension(const string& filename) {
  *
  * @return int Returns 0 on success, or 1 on failure (e.g., invalid file extension).
  */
-int main() {
-    string inputFile;
-    cout << "Enter the input filename (.cpp): ";
-    cin >> inputFile;
+int main(int argc, char* argv[]) {
+    if (argc < 3) {
+        cerr << "Usage: BracketChecker2 <InputTest.cpp> <result.txt>" << endl;
+        return 1;
+    }
+
+    string inputFile = argv[1];
+    string outputFile = argv[2];
 
     if (!has_cpp_extension(inputFile)) {
         cerr << "Error: Invalid file extension. Please provide a .cpp file." << endl;
         return 1;
     }
 
-    string outputFile = "result.txt";
-
     vector<string> lines = read_input_file(inputFile);
     if (lines.empty()) {
         cerr << "Parsing aborted due to input errors or constraint violation." << endl;
         return 1;
     }
-    
+
     set<BracketError> errors = parse_brackets(lines);
     print_result(outputFile, errors);
 
-
     cout << "Bracket checking complete. Results saved to " << outputFile << endl;
-
     return 0;
 }
 
