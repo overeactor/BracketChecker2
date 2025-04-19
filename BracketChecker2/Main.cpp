@@ -75,8 +75,8 @@ int main() {
         return 1;
     }
     
-    set<pair<char, pair<int, int>>> errors = parse_brackets(lines); ///< Analyze bracket errors
-    print_result(outputFile, errors); ///< Write results to the output file
+    set<BracketError> errors = parse_brackets(lines);
+    print_result(outputFile, errors);
 
 
     cout << "Bracket checking complete. Results saved to " << outputFile << endl;
