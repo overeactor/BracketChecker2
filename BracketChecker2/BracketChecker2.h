@@ -18,7 +18,7 @@
 #include <string>
 #include <vector>
 #include <set>
-
+#include <tuple>
 
 
 
@@ -38,9 +38,18 @@ using namespace std;
 const int MAX_LINE_COUNT = 10000;
 const int MAX_LINE_LENGTH = 1000;
 
-/*
-enum BracketErrorType {};
 
+enum BracketErrorType { 
+    WRONG_BRACKET,
+    UNMATCHED_BRACKET,
+    TOO_LONG_PROGRAM,
+    TOO_LONG_LINE
+
+};
+
+
+
+/*
 struct BracketError
 {
 
