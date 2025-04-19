@@ -49,13 +49,17 @@ enum BracketErrorType {
 
 
 
-/*
+
 struct BracketError
 {
+    char bracket;
+    int line;
+    int column;
+    BracketErrorType type;
 
 };
 
-*/
+
 
 /**
  * @brief Checks if the given character is an opening bracket.
