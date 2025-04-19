@@ -23,10 +23,8 @@ inline bool isMatchingPair(char open, char close) {
 
 vector<string> read_input_file(const string& filename) {
 
-
-    // 1) Read code from file
-    // 2) Validate code bool validate_code(vector<string> code, set<code_error> & errors);
-
+    cout << filename << endl;
+    
     ifstream file(filename);
     vector<string> lines;
 
@@ -34,6 +32,7 @@ vector<string> read_input_file(const string& filename) {
     int lineCount = 0;
 
     while (getline(file, line)) {
+        
         lineCount++;
 
         if (lineCount > MAX_LINE_COUNT) {
