@@ -56,6 +56,10 @@ struct BracketError
     int line;
     int column;
     BracketErrorType type;
+    // Needed for using BracketError in a set (sorted container)
+    bool operator<(const BracketError& other) const {
+        return tie(line, column, bracket, type) < tie(other.line, other.column, other.bracket, other.type);
+    }
 
 };
 
@@ -103,7 +107,7 @@ vector<string> read_input_file(const string& filename);
  * @param lines A vector of strings representing the lines of code.
  * @return A vector of unmatched brackets with their positions (line and column).
  */
-set<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines);
+set<BracketError> parse_brackets(const vector<string>& lines);
 
 
 /**
@@ -112,7 +116,7 @@ set<pair<char, pair<int, int>>> parse_brackets(const vector<string>& lines);
  * @param outputFilename The name of the output file.
  * @param errors A vector containing unmatched brackets with their positions.
  */
-void print_result(const string& outputFilename, const set<pair<char, pair<int, int>>>& errors);
+void print_result(const string& outputFilename, const set<BracketError>& errors);
 
 
 
