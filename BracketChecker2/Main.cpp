@@ -1,16 +1,4 @@
-/**
- * @mainpage BracketChecker2
- *
- * @section intro_sec Overview
- * BracketChecker2 is a command-line C++ tool that scans source code files
- * for unmatched or incorrectly paired brackets. It supports detection of:
- * - Parentheses `()`
- * - Curly braces `{}`
- * - Square brackets `[]`
- *
- * @section author_sec Author
- * Developed by [Bebahani A.]
- */
+
 
 
 
@@ -49,13 +37,14 @@ bool has_cpp_extension(const string& filename) {
 }
 
 /**
- * @brief Main function for the BracketChecker2 program.
+ * @brief Main entry point of the program.
  *
- * Prompts the user for an input C++ file name. Validates that the file has a `.cpp` extension.
- * Reads the contents of the file, checks for unmatched brackets using the BracketChecker2 module,
- * and writes the results to a file named `result.txt`.
+ * Accepts input/output file names, performs validation and parsing,
+ * and writes results to the specified output file.
  *
- * @return int Returns 0 on success, or 1 on failure (e.g., invalid file extension).
+ * @param argc [in] Number of command-line arguments.
+ * @param argv [in] Array of command-line argument strings.
+ * @return int Exit status: 0 on success, 1 on error.
  */
 int main(int argc, char* argv[]) {
     if (argc < 3) {
