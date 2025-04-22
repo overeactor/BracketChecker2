@@ -124,6 +124,26 @@ TEST(BracketChecker2Test, MinimalNestedMismatch_Set) {
     EXPECT_EQ(expected, actual);
 }
 
+
+TEST(BracketChecker2Test, UnexpectedOpeningBracketLine) {
+    vector<string> input = {
+        "Int main(",
+        "{"  // Unexpected opening bracket without closure
+    };
+
+    set<BracketError> expected = {
+        {'(', 1, 9, UNMATCHED_BRACKET},
+        {'{', 2, 1, UNMATCHED_BRACKET}
+    };
+
+    auto actual = parse_brackets(input);
+    EXPECT_EQ(expected, actual);
+}
+
+
+
+
+
 // Needed for comparing BracketError in EXPECT_EQ
 bool operator==(const BracketError& lhs, const BracketError& rhs) {
     return lhs.bracket == rhs.bracket &&
