@@ -34,16 +34,17 @@ using namespace std;
 
 
 
- // Constraints
-const int MAX_LINE_COUNT = 10000;
-const int MAX_LINE_LENGTH = 1000;
+// // Constraints
+//const int MAX_LINE_COUNT = 10000;
+//const int MAX_LINE_LENGTH = 1000;
 
 
 enum BracketErrorType { 
     WRONG_BRACKET,
     UNMATCHED_BRACKET,
     TOO_LONG_PROGRAM,
-    TOO_LONG_LINE
+    TOO_LONG_LINE,
+    MACRO_USAGE
 
 };
 
@@ -99,6 +100,10 @@ inline bool isMatchingPair(char open, char close);
  * @return A vector containing each line of the file as a string.
  */
 vector<string> read_input_file(const string& filename);
+
+
+
+set<BracketError> code_validation(const vector<string>& lines);
 
 
 /**
