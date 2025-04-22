@@ -5,6 +5,52 @@
 #include "BracketChecker2.h"
 
 
+
+vector<string> read_input_file(const string& filename) {
+    ifstream file(filename);
+    vector<string> lines;
+
+    if (!file.is_open()) {
+        cerr << "Error: Cannot open file " << filename << endl;
+        return {};
+    }
+
+    string line;
+    while (getline(file, line)) {
+        lines.push_back(line);
+    }
+
+    file.close();
+    return lines;
+}
+
+
+
+set<BracketError> code_validation(const vector<string>& lines) {
+    set<BracketError> errors;
+
+    if (lines.size() >= 1000) {
+        errors.insert({ '\0', static_cast<int>(lines.size()), 1, TOO_LONG_PROGRAM });
+        return errors;
+    }
+
+    for (size_t i = 0; i < lines.size(); i++) {
+        const string& line = lines[i];
+
+        if (line.length() >= 1000) {
+            errors.insert({ '\0', static_cast<int>(i + 1), 1001, TOO_LONG_LINE });
+        }
+
+        size_t pos = line.find("#define");
+        if (pos != string::npos) {
+            errors.insert({ '#', static_cast<int>(i + 1), static_cast<int>(pos + 1), MACRO_USAGE });
+        }
+    }
+
+    return errors;
+}
+
+
 inline bool isOpeningBracket(char ch) {
     return ch == '(' || ch == '[' || ch == '{';
 }
@@ -21,39 +67,6 @@ inline bool isMatchingPair(char open, char close) {
 
 
 
-vector<string> read_input_file(const string& filename) {
-
-    cout << filename << endl;
-    
-    ifstream file(filename);
-    vector<string> lines;
-
-    string line;
-    int lineCount = 0;
-
-    while (getline(file, line)) {
-        
-        lineCount++;
-
-        if (lineCount > MAX_LINE_COUNT) {
-            cerr << "Error: File exceeds maximum allowed lines (" << MAX_LINE_COUNT << ")." << endl;
-            return {};
-        }
-
-        if (line.length() > MAX_LINE_LENGTH) {
-            cerr << "Error: Line " << lineCount << " exceeds max allowed length (" << MAX_LINE_LENGTH << ")." << endl;
-            return {};
-        }
-
-        lines.push_back(line);
-    }
-
-    file.close();
-    return lines;
-}
-
-
-// Parses brackets in the code lines and identifies unmatched or wrong ones
 set<BracketError> parse_brackets(const vector<string>& lines) {
     stack<pair<char, pair<int, int>>> bracketStack;
     set<BracketError> errorPositions;
@@ -68,7 +81,6 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
         for (size_t i = 0; i < line.size(); i++) {
             char ch = line[i];
 
-            // Handle comment blocks and line comments
             if (i < line.size() - 1) {
                 if (!inBlockComment && line[i] == '/' && line[i + 1] == '/') {
                     inLineComment = true;
@@ -85,7 +97,6 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
 
             if (inBlockComment || inLineComment) continue;
 
-            // Handle string literals
             if (!inString && (ch == '"' || ch == '\'')) {
                 inString = true;
                 stringDelimiter = ch;
@@ -98,7 +109,6 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
 
             if (inString) continue;
 
-            // Bracket validation logic
             if (isOpeningBracket(ch)) {
                 bracketStack.push({ ch, {static_cast<int>(lineNum + 1), static_cast<int>(i + 1)} });
             }
@@ -113,7 +123,6 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
         }
     }
 
-    // Remaining opening brackets are unmatched
     while (!bracketStack.empty()) {
         auto top = bracketStack.top();
         errorPositions.insert({ top.first, top.second.first, top.second.second, UNMATCHED_BRACKET });
@@ -122,6 +131,9 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
 
     return errorPositions;
 }
+
+
+
 
 
 void print_result(const string& outputFilename, const set<BracketError>& errors) {
@@ -135,23 +147,25 @@ void print_result(const string& outputFilename, const set<BracketError>& errors)
         outputFile << "All brackets are correctly closed." << endl;
     }
     else {
-        outputFile << "Unmatched brackets found: " << endl;
+        outputFile << "Unmatched or invalid constructs found: " << endl;
         for (const auto& error : errors) {
-            outputFile << "Bracket '" << error.bracket << "' at Line " << error.line
-                << ", Column " << error.column << " — ";
+            outputFile << "At Line " << error.line << ", Column " << error.column << ": ";
 
             switch (error.type) {
             case WRONG_BRACKET:
-                outputFile << "Wrong closing bracket.";
+                outputFile << "Wrong closing bracket '" << error.bracket << "'.";
                 break;
             case UNMATCHED_BRACKET:
-                outputFile << "Unmatched opening bracket.";
+                outputFile << "Unmatched opening bracket '" << error.bracket << "'.";
                 break;
             case TOO_LONG_PROGRAM:
-                outputFile << "File exceeds maximum line count.";
+                outputFile << "Too many lines in the program.";
                 break;
             case TOO_LONG_LINE:
-                outputFile << "Line exceeds maximum allowed length.";
+                outputFile << "Line exceeds maximum length.";
+                break;
+            case MACRO_USAGE:
+                outputFile << "Usage of #define is not allowed.";
                 break;
             }
 
@@ -161,3 +175,4 @@ void print_result(const string& outputFilename, const set<BracketError>& errors)
 
     outputFile.close();
 }
+
