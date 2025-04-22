@@ -48,7 +48,7 @@ bool has_cpp_extension(const string& filename) {
  */
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        cerr << "Usage: BracketChecker2 <validation.cpp> <result.txt>" << endl;
+        cerr << "Usage: BracketChecker2 <input.cpp> <result.txt>" << endl;
         return 1;
     }
 
