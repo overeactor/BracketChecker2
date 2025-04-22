@@ -59,7 +59,7 @@ bool has_cpp_extension(const string& filename) {
  */
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        cerr << "Usage: BracketChecker2 <InputTest.cpp> <result.txt>" << endl;
+        cerr << "Usage: BracketChecker2 <validation.cpp> <result.txt>" << endl;
         return 1;
     }
 
@@ -72,13 +72,16 @@ int main(int argc, char* argv[]) {
     }
 
     vector<string> lines = read_input_file(inputFile);
-    if (lines.empty()) {
-        cerr << "Parsing aborted due to input errors or constraint violation." << endl;
+    set<BracketError> validationErrors = code_validation(lines);
+
+    if (!validationErrors.empty()) {
+        print_result(outputFile, validationErrors);
+        cerr << "Validation failed. See result.txt for details." << endl;
         return 1;
     }
 
-    set<BracketError> errors = parse_brackets(lines);
-    print_result(outputFile, errors);
+    set<BracketError> parseErrors = parse_brackets(lines);
+    print_result(outputFile, parseErrors);
 
     cout << "Bracket checking complete. Results saved to " << outputFile << endl;
     return 0;
