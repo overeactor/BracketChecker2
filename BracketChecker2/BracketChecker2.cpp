@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file BracketChecker2.cpp
  * @brief Implementation file for bracket validation functions.
  */
@@ -97,12 +97,29 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
 
             if (inBlockComment || inLineComment) continue;
 
-            if (!inString && (ch == '"' || ch == '\'')) {
+            // Normalize fancy quotes: “ ” → " and ‘ ’ → '
+            if (!inString && (ch == '"' || ch == '\'' || ch == '“' || ch == '”' || ch == '‘' || ch == '’')) {
                 inString = true;
-                stringDelimiter = ch;
+
+                // Normalize fancy quote to standard quote type
+                if (ch == '“' || ch == '”') {
+                    stringDelimiter = '"';
+                }
+                else if (ch == '‘' || ch == '’') {
+                    stringDelimiter = '\'';
+                }
+                else {
+                    stringDelimiter = ch;
+                }
+
                 continue;
             }
-            else if (inString && ch == stringDelimiter) {
+            // If inside string, and we hit a matching closing quote (even a fancy one), exit
+            else if (inString && (
+                ch == stringDelimiter ||
+                (stringDelimiter == '"' && (ch == '“' || ch == '”')) ||
+                (stringDelimiter == '\'' && (ch == '‘' || ch == '’'))
+                )) {
                 inString = false;
                 continue;
             }
@@ -131,6 +148,7 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
 
     return errorPositions;
 }
+
 
 
 
