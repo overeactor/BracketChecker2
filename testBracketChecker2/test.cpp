@@ -141,6 +141,25 @@ TEST(BracketChecker2Test, UnexpectedOpeningBracketLine) {
 }
 
 
+TEST(testBracketChecker2, CurlyDoubleQuotesShouldNotAffectBracketParsing) {
+    vector<string> code = {
+        "{string str = “}”"
+    };
+
+    set<BracketError> errors = parse_brackets(code);
+
+    // Only the opening brace '{' is unmatched, the '}' is inside curly double quotes and should be ignored
+    set<BracketError> expected = {
+        { '{', 1, 1, UNMATCHED_BRACKET }
+    };
+
+    EXPECT_EQ(errors, expected);
+}
+
+
+
+
+
 
 
 
