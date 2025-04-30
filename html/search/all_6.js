@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['parse_5fbrackets_0',['parse_brackets',['../_bracket_checker2_8cpp.html#abb71e368f0ecfe54b8ea3335a2905143',1,'parse_brackets(const vector&lt; string &gt; &amp;lines):&#160;BracketChecker2.cpp'],['../_bracket_checker2_8h.html#abb71e368f0ecfe54b8ea3335a2905143',1,'parse_brackets(const vector&lt; string &gt; &amp;lines):&#160;BracketChecker2.cpp']]],
-  ['print_5fresult_1',['print_result',['../_bracket_checker2_8cpp.html#ae0e7a8f1250bac2b529e0fa6c9184e91',1,'print_result(const string &amp;outputFilename, const vector&lt; pair&lt; char, pair&lt; int, int &gt; &gt; &gt; &amp;errors):&#160;BracketChecker2.cpp'],['../_bracket_checker2_8h.html#ae0e7a8f1250bac2b529e0fa6c9184e91',1,'print_result(const string &amp;outputFilename, const vector&lt; pair&lt; char, pair&lt; int, int &gt; &gt; &gt; &amp;errors):&#160;BracketChecker2.cpp']]]
+  ['introduction_0',['Introduction',['../index.html#intro',1,'']]],
+  ['isclosingbracket_1',['isClosingBracket',['../_bracket_checker2_8cpp.html#ac72790b62b9089fc49ff0db095d0c0ba',1,'isClosingBracket(char ch):&#160;BracketChecker2.cpp'],['../_bracket_checker2_8h.html#ac72790b62b9089fc49ff0db095d0c0ba',1,'isClosingBracket(char ch):&#160;BracketChecker2.cpp']]],
+  ['ismatchingpair_2',['isMatchingPair',['../_bracket_checker2_8cpp.html#a67294e9c8decb429efaf45b94dec6145',1,'isMatchingPair(char open, char close):&#160;BracketChecker2.cpp'],['../_bracket_checker2_8h.html#a67294e9c8decb429efaf45b94dec6145',1,'isMatchingPair(char open, char close):&#160;BracketChecker2.cpp']]],
+  ['isopeningbracket_3',['isOpeningBracket',['../_bracket_checker2_8cpp.html#a4b3b8aa187dbfa855fda2e74c31167ef',1,'isOpeningBracket(char ch):&#160;BracketChecker2.cpp'],['../_bracket_checker2_8h.html#a4b3b8aa187dbfa855fda2e74c31167ef',1,'isOpeningBracket(char ch):&#160;BracketChecker2.cpp']]]
 ];

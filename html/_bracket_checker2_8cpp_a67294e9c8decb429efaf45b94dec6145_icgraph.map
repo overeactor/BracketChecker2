@@ -1,7 +1,7 @@
 <map id="isMatchingPair" name="isMatchingPair">
-<area shape="rect" id="Node000001" title="Checks if the given pair of brackets match." alt="" coords="261,5,368,32"/>
-<area shape="rect" id="Node000002" href="$_bracket_checker2_8cpp.html#abb71e368f0ecfe54b8ea3335a2905143" title="Parses the given lines of text to detect unmatched brackets." alt="" coords="103,5,213,32"/>
+<area shape="rect" id="Node000001" title="Checks whether two characters form a valid matching bracket pair." alt="" coords="261,5,368,32"/>
+<area shape="rect" id="Node000002" href="$_bracket_checker2_8cpp.html#a7cb2ad2d8788b6a201fbfe8ca26320e9" title="Parses brackets in the source code." alt="" coords="103,5,213,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,21,214,21,214,16,245,16"/>
-<area shape="rect" id="Node000003" href="$_main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main function for the BracketChecker2 program." alt="" coords="5,5,55,32"/>
+<area shape="rect" id="Node000003" href="$_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,55,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>

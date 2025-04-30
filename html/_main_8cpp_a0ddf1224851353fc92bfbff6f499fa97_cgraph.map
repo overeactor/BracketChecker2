@@ -1,0 +1,19 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="Main entry point of the program." alt="" coords="5,107,55,133"/>
+<area shape="rect" id="Node000002" href="$_bracket_checker2_8cpp.html#a926b954574ed6596220d00a676e37138" title="Validates program constraints." alt="" coords="114,5,225,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="39,105,65,74,101,42,109,37,112,42,104,46,69,77,43,108"/>
+<area shape="rect" id="Node000003" href="$_main_8cpp.html#a79a9acbe2aee0b410ba46cec9e842df0" title="Checks whether a file has a .cpp extension." alt="" coords="103,56,236,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="54,109,116,86,117,91,56,114"/>
+<area shape="rect" id="Node000004" href="$_bracket_checker2_8cpp.html#a7cb2ad2d8788b6a201fbfe8ca26320e9" title="Parses brackets in the source code." alt="" coords="114,107,224,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="55,117,99,117,99,123,55,123"/>
+<area shape="rect" id="Node000008" href="$_bracket_checker2_8cpp.html#a3dc3fee355f92de9a6f407c072725ddf" title="Prints errors to an output file." alt="" coords="127,157,212,184"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="56,126,117,149,116,154,54,131"/>
+<area shape="rect" id="Node000009" href="$_bracket_checker2_8cpp.html#a5e7b803db2016b273a77cdff3c3d0332" title="Reads all lines from a file." alt="" coords="117,208,222,235"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="43,132,69,163,104,194,112,198,109,203,101,198,65,166,39,135"/>
+<area shape="rect" id="Node000005" href="$_bracket_checker2_8cpp.html#ac72790b62b9089fc49ff0db095d0c0ba" title="Checks whether a character is a closing bracket." alt="" coords="286,56,406,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="218,103,282,85,284,90,219,109"/>
+<area shape="rect" id="Node000006" href="$_bracket_checker2_8cpp.html#a67294e9c8decb429efaf45b94dec6145" title="Checks whether two characters form a valid matching bracket pair." alt="" coords="292,107,400,133"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="225,117,277,117,277,123,225,123"/>
+<area shape="rect" id="Node000007" href="$_bracket_checker2_8cpp.html#a4b3b8aa187dbfa855fda2e74c31167ef" title="Checks whether a character is an opening bracket." alt="" coords="284,157,408,184"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="219,131,284,150,282,155,218,137"/>
+</map>

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['read_5finput_5ffile_0',['read_input_file',['../_bracket_checker2_8cpp.html#a5e7b803db2016b273a77cdff3c3d0332',1,'read_input_file(const string &amp;filename):&#160;BracketChecker2.cpp'],['../_bracket_checker2_8h.html#a5e7b803db2016b273a77cdff3c3d0332',1,'read_input_file(const string &amp;filename):&#160;BracketChecker2.cpp']]]
+  ['macro_5fusage_0',['MACRO_USAGE',['../_bracket_checker2_8h.html#a584a50e7fd4e7f71d8183632fc0b4d58a6600c303f824b73cdf115d41f89bbe5f',1,'BracketChecker2.h']]],
+  ['main_1',['main',['../_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'Main.cpp']]],
+  ['main_2ecpp_2',['Main.cpp',['../_main_8cpp.html',1,'']]]
 ];

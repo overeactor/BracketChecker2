@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['author_0',['Author',['../index.html#author_sec',1,'']]]
+  ['author_0',['Author',['../index.html#author',1,'']]]
 ];

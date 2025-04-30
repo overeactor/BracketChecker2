@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['has_5fcpp_5fextension_0',['has_cpp_extension',['../_main_8cpp.html#a79a9acbe2aee0b410ba46cec9e842df0',1,'Main.cpp']]]
+  ['code_5fvalidation_0',['code_validation',['../_bracket_checker2_8cpp.html#a926b954574ed6596220d00a676e37138',1,'code_validation(const vector&lt; string &gt; &amp;lines):&#160;BracketChecker2.cpp'],['../_bracket_checker2_8h.html#a926b954574ed6596220d00a676e37138',1,'code_validation(const vector&lt; string &gt; &amp;lines):&#160;BracketChecker2.cpp']]]
 ];

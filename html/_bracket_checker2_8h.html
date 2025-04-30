@@ -103,35 +103,43 @@ $(function(){initNavTree('_bracket_checker2_8h.html',''); initResizable(true); }
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">BracketChecker2.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for bracket validation functions.  
+<p>Header definitions for BracketChecker2 program.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;stack&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;set&gt;</code><br />
+<code>#include &lt;tuple&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for BracketChecker2.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_bracket_checker2_8h__incl.png" border="0" usemap="#a_bracket_checker2_2_bracket_checker2_8h" alt=""/></div>
 <map name="a_bracket_checker2_2_bracket_checker2_8h" id="a_bracket_checker2_2_bracket_checker2_8h">
-<area shape="rect" title="Header file for bracket validation functions." alt="" coords="98,5,336,32"/>
+<area shape="rect" title="Header definitions for BracketChecker2 program." alt="" coords="175,5,414,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,77,107"/>
-<area shape="poly" title=" " alt="" coords="187,35,87,76,85,71,185,30"/>
+<area shape="poly" title=" " alt="" coords="251,35,92,80,91,75,249,30"/>
 <area shape="rect" title=" " alt="" coords="100,80,166,107"/>
-<area shape="poly" title=" " alt="" coords="204,35,161,72,157,68,201,31"/>
+<area shape="poly" title=" " alt="" coords="267,35,176,76,174,71,265,30"/>
 <area shape="rect" title=" " alt="" coords="190,80,244,107"/>
-<area shape="poly" title=" " alt="" coords="220,33,220,64,214,64,214,33"/>
+<area shape="poly" title=" " alt="" coords="283,34,243,71,240,67,279,31"/>
 <area shape="rect" title=" " alt="" coords="268,80,321,107"/>
-<area shape="poly" title=" " alt="" coords="232,31,272,67,268,71,229,34"/>
+<area shape="poly" title=" " alt="" coords="297,33,297,64,292,64,292,33"/>
 <area shape="rect" title=" " alt="" coords="346,80,403,107"/>
-<area shape="poly" title=" " alt="" coords="246,30,334,71,332,75,243,35"/>
+<area shape="poly" title=" " alt="" coords="310,31,351,68,348,72,306,35"/>
+<area shape="rect" title=" " alt="" coords="427,80,466,107"/>
+<area shape="poly" title=" " alt="" coords="322,30,414,74,412,78,320,35"/>
+<area shape="rect" title=" " alt="" coords="490,80,539,107"/>
+<area shape="poly" title=" " alt="" coords="334,30,475,76,474,81,332,35"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -139,7 +147,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_bracket_checker2_8h__dep__incl.png" border="0" usemap="#a_bracket_checker2_2_bracket_checker2_8hdep" alt=""/></div>
 <map name="a_bracket_checker2_2_bracket_checker2_8hdep" id="a_bracket_checker2_2_bracket_checker2_8hdep">
-<area shape="rect" title="Header file for bracket validation functions." alt="" coords="132,5,371,32"/>
+<area shape="rect" title="Header definitions for BracketChecker2 program." alt="" coords="132,5,371,32"/>
 <area shape="rect" href="_bracket_checker2_8cpp.html" title="Implementation file for bracket validation functions." alt="" coords="5,80,258,107"/>
 <area shape="poly" title=" " alt="" coords="219,43,154,82,151,77,216,38"/>
 <area shape="rect" href="_main_8cpp.html" title="Entry point for the BracketChecker2 program." alt="" coords="282,80,461,107"/>
@@ -149,31 +157,120 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="_bracket_checker2_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bracket_error.html">BracketError</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct to hold details about a bracket or formatting error.  <a href="struct_bracket_error.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a584a50e7fd4e7f71d8183632fc0b4d58" id="r_a584a50e7fd4e7f71d8183632fc0b4d58"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a584a50e7fd4e7f71d8183632fc0b4d58">BracketErrorType</a> { <br />
+&#160;&#160;<a class="el" href="#a584a50e7fd4e7f71d8183632fc0b4d58af3d92a7b1b778bd408e75b3167ae2b2a">WRONG_BRACKET</a>
+, <a class="el" href="#a584a50e7fd4e7f71d8183632fc0b4d58ab31bc7cee24c86a975a907907026abec">UNMATCHED_BRACKET</a>
+, <a class="el" href="#a584a50e7fd4e7f71d8183632fc0b4d58ad223f2ad4ba5802fa46334d12971a67c">TOO_LONG_PROGRAM</a>
+, <a class="el" href="#a584a50e7fd4e7f71d8183632fc0b4d58ab99ec1fedb7d5f6c965704685d6643c4">TOO_LONG_LINE</a>
+, <br />
+&#160;&#160;<a class="el" href="#a584a50e7fd4e7f71d8183632fc0b4d58a6600c303f824b73cdf115d41f89bbe5f">MACRO_USAGE</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a584a50e7fd4e7f71d8183632fc0b4d58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents various types of bracket or formatting errors.  <a href="#a584a50e7fd4e7f71d8183632fc0b4d58">More...</a><br /></td></tr>
+<tr class="separator:a584a50e7fd4e7f71d8183632fc0b4d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4b3b8aa187dbfa855fda2e74c31167ef" id="r_a4b3b8aa187dbfa855fda2e74c31167ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b3b8aa187dbfa855fda2e74c31167ef">isOpeningBracket</a> (char ch)</td></tr>
-<tr class="memdesc:a4b3b8aa187dbfa855fda2e74c31167ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given character is an opening bracket.  <br /></td></tr>
+<tr class="memdesc:a4b3b8aa187dbfa855fda2e74c31167ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a character is an opening bracket.  <br /></td></tr>
 <tr class="separator:a4b3b8aa187dbfa855fda2e74c31167ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac72790b62b9089fc49ff0db095d0c0ba" id="r_ac72790b62b9089fc49ff0db095d0c0ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac72790b62b9089fc49ff0db095d0c0ba">isClosingBracket</a> (char ch)</td></tr>
-<tr class="memdesc:ac72790b62b9089fc49ff0db095d0c0ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given character is a closing bracket.  <br /></td></tr>
+<tr class="memdesc:ac72790b62b9089fc49ff0db095d0c0ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a character is a closing bracket.  <br /></td></tr>
 <tr class="separator:ac72790b62b9089fc49ff0db095d0c0ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67294e9c8decb429efaf45b94dec6145" id="r_a67294e9c8decb429efaf45b94dec6145"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67294e9c8decb429efaf45b94dec6145">isMatchingPair</a> (char open, char close)</td></tr>
-<tr class="memdesc:a67294e9c8decb429efaf45b94dec6145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given pair of brackets match.  <br /></td></tr>
+<tr class="memdesc:a67294e9c8decb429efaf45b94dec6145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether two characters form a valid matching bracket pair.  <br /></td></tr>
 <tr class="separator:a67294e9c8decb429efaf45b94dec6145"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e7b803db2016b273a77cdff3c3d0332" id="r_a5e7b803db2016b273a77cdff3c3d0332"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e7b803db2016b273a77cdff3c3d0332">read_input_file</a> (const string &amp;filename)</td></tr>
-<tr class="memdesc:a5e7b803db2016b273a77cdff3c3d0332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an input file and returns its content as a vector of strings.  <br /></td></tr>
+<tr class="memdesc:a5e7b803db2016b273a77cdff3c3d0332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads all lines from a file.  <br /></td></tr>
 <tr class="separator:a5e7b803db2016b273a77cdff3c3d0332"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb71e368f0ecfe54b8ea3335a2905143" id="r_abb71e368f0ecfe54b8ea3335a2905143"><td class="memItemLeft" align="right" valign="top">vector&lt; pair&lt; char, pair&lt; int, int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb71e368f0ecfe54b8ea3335a2905143">parse_brackets</a> (const vector&lt; string &gt; &amp;lines)</td></tr>
-<tr class="memdesc:abb71e368f0ecfe54b8ea3335a2905143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the given lines of text to detect unmatched brackets.  <br /></td></tr>
-<tr class="separator:abb71e368f0ecfe54b8ea3335a2905143"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0e7a8f1250bac2b529e0fa6c9184e91" id="r_ae0e7a8f1250bac2b529e0fa6c9184e91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0e7a8f1250bac2b529e0fa6c9184e91">print_result</a> (const string &amp;outputFilename, const vector&lt; pair&lt; char, pair&lt; int, int &gt; &gt; &gt; &amp;errors)</td></tr>
-<tr class="memdesc:ae0e7a8f1250bac2b529e0fa6c9184e91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs the result of bracket matching to a file.  <br /></td></tr>
-<tr class="separator:ae0e7a8f1250bac2b529e0fa6c9184e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a926b954574ed6596220d00a676e37138" id="r_a926b954574ed6596220d00a676e37138"><td class="memItemLeft" align="right" valign="top">set&lt; <a class="el" href="struct_bracket_error.html">BracketError</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a926b954574ed6596220d00a676e37138">code_validation</a> (const vector&lt; string &gt; &amp;lines)</td></tr>
+<tr class="memdesc:a926b954574ed6596220d00a676e37138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates program constraints.  <br /></td></tr>
+<tr class="separator:a926b954574ed6596220d00a676e37138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cb2ad2d8788b6a201fbfe8ca26320e9" id="r_a7cb2ad2d8788b6a201fbfe8ca26320e9"><td class="memItemLeft" align="right" valign="top">set&lt; <a class="el" href="struct_bracket_error.html">BracketError</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cb2ad2d8788b6a201fbfe8ca26320e9">parse_brackets</a> (const vector&lt; string &gt; &amp;lines)</td></tr>
+<tr class="memdesc:a7cb2ad2d8788b6a201fbfe8ca26320e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses brackets in the source code.  <br /></td></tr>
+<tr class="separator:a7cb2ad2d8788b6a201fbfe8ca26320e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dc3fee355f92de9a6f407c072725ddf" id="r_a3dc3fee355f92de9a6f407c072725ddf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dc3fee355f92de9a6f407c072725ddf">print_result</a> (const string &amp;outputFilename, const set&lt; <a class="el" href="struct_bracket_error.html">BracketError</a> &gt; &amp;errors)</td></tr>
+<tr class="memdesc:a3dc3fee355f92de9a6f407c072725ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints errors to an output file.  <br /></td></tr>
+<tr class="separator:a3dc3fee355f92de9a6f407c072725ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for bracket validation functions. </p>
-<p>This file contains function declarations for checking matching brackets in a given input file. It includes utility functions to determine bracket types and handle file input/output operations. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+<div class="textblock"><p>Header definitions for BracketChecker2 program. </p>
+<p>Declares the core types and functions used in reading, validating, parsing, and printing bracket and formatting errors.</p>
+<dl class="section author"><dt>Author</dt><dd>Bebahani A. </dd></dl>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a584a50e7fd4e7f71d8183632fc0b4d58" name="a584a50e7fd4e7f71d8183632fc0b4d58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a584a50e7fd4e7f71d8183632fc0b4d58">&#9670;&#160;</a></span>BracketErrorType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a584a50e7fd4e7f71d8183632fc0b4d58">BracketErrorType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represents various types of bracket or formatting errors. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a584a50e7fd4e7f71d8183632fc0b4d58af3d92a7b1b778bd408e75b3167ae2b2a" name="a584a50e7fd4e7f71d8183632fc0b4d58af3d92a7b1b778bd408e75b3167ae2b2a"></a>WRONG_BRACKET&#160;</td><td class="fielddoc"><p>Mismatched closing bracket. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a584a50e7fd4e7f71d8183632fc0b4d58ab31bc7cee24c86a975a907907026abec" name="a584a50e7fd4e7f71d8183632fc0b4d58ab31bc7cee24c86a975a907907026abec"></a>UNMATCHED_BRACKET&#160;</td><td class="fielddoc"><p>Unmatched opening bracket. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a584a50e7fd4e7f71d8183632fc0b4d58ad223f2ad4ba5802fa46334d12971a67c" name="a584a50e7fd4e7f71d8183632fc0b4d58ad223f2ad4ba5802fa46334d12971a67c"></a>TOO_LONG_PROGRAM&#160;</td><td class="fielddoc"><p>File has more than 1000 lines. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a584a50e7fd4e7f71d8183632fc0b4d58ab99ec1fedb7d5f6c965704685d6643c4" name="a584a50e7fd4e7f71d8183632fc0b4d58ab99ec1fedb7d5f6c965704685d6643c4"></a>TOO_LONG_LINE&#160;</td><td class="fielddoc"><p>A single line exceeds 1000 characters. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a584a50e7fd4e7f71d8183632fc0b4d58a6600c303f824b73cdf115d41f89bbe5f" name="a584a50e7fd4e7f71d8183632fc0b4d58a6600c303f824b73cdf115d41f89bbe5f"></a>MACRO_USAGE&#160;</td><td class="fielddoc"><p><code>#define</code> macro used in code </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a926b954574ed6596220d00a676e37138" name="a926b954574ed6596220d00a676e37138"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a926b954574ed6596220d00a676e37138">&#9670;&#160;</a></span>code_validation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">set&lt; <a class="el" href="struct_bracket_error.html">BracketError</a> &gt; code_validation </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>lines</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Validates program constraints. </p>
+<p>Checks line count, line length, and macro usage. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lines</td><td>[in] Source code lines to validate. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Set of bracket errors related to formatting. </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_bracket_checker2_8h_a926b954574ed6596220d00a676e37138_icgraph.png" border="0" usemap="#a_bracket_checker2_8h_a926b954574ed6596220d00a676e37138_icgraph" alt=""/></div>
+<map name="a_bracket_checker2_8h_a926b954574ed6596220d00a676e37138_icgraph" id="a_bracket_checker2_8h_a926b954574ed6596220d00a676e37138_icgraph">
+<area shape="rect" title="Validates program constraints." alt="" coords="103,5,214,32"/>
+<area shape="rect" href="_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ac72790b62b9089fc49ff0db095d0c0ba" name="ac72790b62b9089fc49ff0db095d0c0ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac72790b62b9089fc49ff0db095d0c0ba">&#9670;&#160;</a></span>isClosingBracket()</h2>
 
@@ -197,23 +294,23 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the given character is a closing bracket. </p>
+<p>Checks whether a character is a closing bracket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ch</td><td>The character to check. </td></tr>
+    <tr><td class="paramname">ch</td><td>[in] The character to evaluate. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if it is a closing bracket, otherwise false. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the character is one of ')', ']', or '}'. </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_bracket_checker2_8h_ac72790b62b9089fc49ff0db095d0c0ba_icgraph.png" border="0" usemap="#a_bracket_checker2_8h_ac72790b62b9089fc49ff0db095d0c0ba_icgraph" alt=""/></div>
 <map name="a_bracket_checker2_8h_ac72790b62b9089fc49ff0db095d0c0ba_icgraph" id="a_bracket_checker2_8h_ac72790b62b9089fc49ff0db095d0c0ba_icgraph">
-<area shape="rect" title="Checks if the given character is a closing bracket." alt="" coords="261,5,381,32"/>
-<area shape="rect" href="_bracket_checker2_8cpp.html#abb71e368f0ecfe54b8ea3335a2905143" title="Parses the given lines of text to detect unmatched brackets." alt="" coords="103,5,213,32"/>
+<area shape="rect" title="Checks whether a character is a closing bracket." alt="" coords="261,5,381,32"/>
+<area shape="rect" href="_bracket_checker2_8cpp.html#a7cb2ad2d8788b6a201fbfe8ca26320e9" title="Parses brackets in the source code." alt="" coords="103,5,213,32"/>
 <area shape="poly" title=" " alt="" coords="245,21,214,21,214,16,245,16"/>
-<area shape="rect" href="_main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main function for the BracketChecker2 program." alt="" coords="5,5,55,32"/>
+<area shape="rect" href="_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -247,24 +344,24 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the given pair of brackets match. </p>
+<p>Checks whether two characters form a valid matching bracket pair. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">open</td><td>The opening bracket character. </td></tr>
-    <tr><td class="paramname">close</td><td>The closing bracket character. </td></tr>
+    <tr><td class="paramname">open</td><td>[in] The opening bracket character. </td></tr>
+    <tr><td class="paramname">close</td><td>[in] The closing bracket character. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if they form a valid pair, otherwise false. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the pair is valid (i.e., (), {}, []). </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_bracket_checker2_8h_a67294e9c8decb429efaf45b94dec6145_icgraph.png" border="0" usemap="#a_bracket_checker2_8h_a67294e9c8decb429efaf45b94dec6145_icgraph" alt=""/></div>
 <map name="a_bracket_checker2_8h_a67294e9c8decb429efaf45b94dec6145_icgraph" id="a_bracket_checker2_8h_a67294e9c8decb429efaf45b94dec6145_icgraph">
-<area shape="rect" title="Checks if the given pair of brackets match." alt="" coords="261,5,368,32"/>
-<area shape="rect" href="_bracket_checker2_8cpp.html#abb71e368f0ecfe54b8ea3335a2905143" title="Parses the given lines of text to detect unmatched brackets." alt="" coords="103,5,213,32"/>
+<area shape="rect" title="Checks whether two characters form a valid matching bracket pair." alt="" coords="261,5,368,32"/>
+<area shape="rect" href="_bracket_checker2_8cpp.html#a7cb2ad2d8788b6a201fbfe8ca26320e9" title="Parses brackets in the source code." alt="" coords="103,5,213,32"/>
 <area shape="poly" title=" " alt="" coords="245,21,214,21,214,16,245,16"/>
-<area shape="rect" href="_main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main function for the BracketChecker2 program." alt="" coords="5,5,55,32"/>
+<area shape="rect" href="_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -294,37 +391,37 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the given character is an opening bracket. </p>
+<p>Checks whether a character is an opening bracket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ch</td><td>The character to check. </td></tr>
+    <tr><td class="paramname">ch</td><td>[in] The character to evaluate. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if it is an opening bracket, otherwise false. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the character is one of '(', '[', or '{'. </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_bracket_checker2_8h_a4b3b8aa187dbfa855fda2e74c31167ef_icgraph.png" border="0" usemap="#a_bracket_checker2_8h_a4b3b8aa187dbfa855fda2e74c31167ef_icgraph" alt=""/></div>
 <map name="a_bracket_checker2_8h_a4b3b8aa187dbfa855fda2e74c31167ef_icgraph" id="a_bracket_checker2_8h_a4b3b8aa187dbfa855fda2e74c31167ef_icgraph">
-<area shape="rect" title="Checks if the given character is an opening bracket." alt="" coords="261,5,385,32"/>
-<area shape="rect" href="_bracket_checker2_8cpp.html#abb71e368f0ecfe54b8ea3335a2905143" title="Parses the given lines of text to detect unmatched brackets." alt="" coords="103,5,213,32"/>
+<area shape="rect" title="Checks whether a character is an opening bracket." alt="" coords="261,5,385,32"/>
+<area shape="rect" href="_bracket_checker2_8cpp.html#a7cb2ad2d8788b6a201fbfe8ca26320e9" title="Parses brackets in the source code." alt="" coords="103,5,213,32"/>
 <area shape="poly" title=" " alt="" coords="245,21,213,21,213,16,245,16"/>
-<area shape="rect" href="_main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main function for the BracketChecker2 program." alt="" coords="5,5,55,32"/>
+<area shape="rect" href="_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="abb71e368f0ecfe54b8ea3335a2905143" name="abb71e368f0ecfe54b8ea3335a2905143"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb71e368f0ecfe54b8ea3335a2905143">&#9670;&#160;</a></span>parse_brackets()</h2>
+<a id="a7cb2ad2d8788b6a201fbfe8ca26320e9" name="a7cb2ad2d8788b6a201fbfe8ca26320e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cb2ad2d8788b6a201fbfe8ca26320e9">&#9670;&#160;</a></span>parse_brackets()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; pair&lt; char, pair&lt; int, int &gt; &gt; &gt; parse_brackets </td>
+          <td class="memname">set&lt; <a class="el" href="struct_bracket_error.html">BracketError</a> &gt; parse_brackets </td>
           <td>(</td>
           <td class="paramtype">const vector&lt; string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>lines</em></span></td><td>)</td>
           <td></td>
@@ -332,43 +429,43 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Parses the given lines of text to detect unmatched brackets. </p>
+<p>Parses brackets in the source code. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lines</td><td>A vector of strings representing the lines of code. </td></tr>
+    <tr><td class="paramname">lines</td><td>[in] Validated source code lines. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of unmatched brackets with their positions (line and column). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Set of bracket errors (wrong or unmatched). </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_bracket_checker2_8h_abb71e368f0ecfe54b8ea3335a2905143_cgraph.png" border="0" usemap="#a_bracket_checker2_8h_abb71e368f0ecfe54b8ea3335a2905143_cgraph" alt=""/></div>
-<map name="a_bracket_checker2_8h_abb71e368f0ecfe54b8ea3335a2905143_cgraph" id="a_bracket_checker2_8h_abb71e368f0ecfe54b8ea3335a2905143_cgraph">
-<area shape="rect" title="Parses the given lines of text to detect unmatched brackets." alt="" coords="5,56,116,83"/>
-<area shape="rect" href="_bracket_checker2_8cpp.html#ac72790b62b9089fc49ff0db095d0c0ba" title="Checks if the given character is a closing bracket." alt="" coords="166,5,286,32"/>
+<div class="center"><img src="_bracket_checker2_8h_a7cb2ad2d8788b6a201fbfe8ca26320e9_cgraph.png" border="0" usemap="#a_bracket_checker2_8h_a7cb2ad2d8788b6a201fbfe8ca26320e9_cgraph" alt=""/></div>
+<map name="a_bracket_checker2_8h_a7cb2ad2d8788b6a201fbfe8ca26320e9_cgraph" id="a_bracket_checker2_8h_a7cb2ad2d8788b6a201fbfe8ca26320e9_cgraph">
+<area shape="rect" title="Parses brackets in the source code." alt="" coords="5,56,116,83"/>
+<area shape="rect" href="_bracket_checker2_8cpp.html#ac72790b62b9089fc49ff0db095d0c0ba" title="Checks whether a character is a closing bracket." alt="" coords="166,5,286,32"/>
 <area shape="poly" title=" " alt="" coords="106,53,165,35,166,40,108,58"/>
-<area shape="rect" href="_bracket_checker2_8cpp.html#a67294e9c8decb429efaf45b94dec6145" title="Checks if the given pair of brackets match." alt="" coords="172,56,280,83"/>
+<area shape="rect" href="_bracket_checker2_8cpp.html#a67294e9c8decb429efaf45b94dec6145" title="Checks whether two characters form a valid matching bracket pair." alt="" coords="172,56,280,83"/>
 <area shape="poly" title=" " alt="" coords="116,67,157,67,157,72,116,72"/>
-<area shape="rect" href="_bracket_checker2_8cpp.html#a4b3b8aa187dbfa855fda2e74c31167ef" title="Checks if the given character is an opening bracket." alt="" coords="164,107,288,133"/>
+<area shape="rect" href="_bracket_checker2_8cpp.html#a4b3b8aa187dbfa855fda2e74c31167ef" title="Checks whether a character is an opening bracket." alt="" coords="164,107,288,133"/>
 <area shape="poly" title=" " alt="" coords="108,81,166,99,165,104,106,86"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_bracket_checker2_8h_abb71e368f0ecfe54b8ea3335a2905143_icgraph.png" border="0" usemap="#a_bracket_checker2_8h_abb71e368f0ecfe54b8ea3335a2905143_icgraph" alt=""/></div>
-<map name="a_bracket_checker2_8h_abb71e368f0ecfe54b8ea3335a2905143_icgraph" id="a_bracket_checker2_8h_abb71e368f0ecfe54b8ea3335a2905143_icgraph">
-<area shape="rect" title="Parses the given lines of text to detect unmatched brackets." alt="" coords="103,5,213,32"/>
-<area shape="rect" href="_main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main function for the BracketChecker2 program." alt="" coords="5,5,55,32"/>
+<div class="center"><img src="_bracket_checker2_8h_a7cb2ad2d8788b6a201fbfe8ca26320e9_icgraph.png" border="0" usemap="#a_bracket_checker2_8h_a7cb2ad2d8788b6a201fbfe8ca26320e9_icgraph" alt=""/></div>
+<map name="a_bracket_checker2_8h_a7cb2ad2d8788b6a201fbfe8ca26320e9_icgraph" id="a_bracket_checker2_8h_a7cb2ad2d8788b6a201fbfe8ca26320e9_icgraph">
+<area shape="rect" title="Parses brackets in the source code." alt="" coords="103,5,213,32"/>
+<area shape="rect" href="_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ae0e7a8f1250bac2b529e0fa6c9184e91" name="ae0e7a8f1250bac2b529e0fa6c9184e91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0e7a8f1250bac2b529e0fa6c9184e91">&#9670;&#160;</a></span>print_result()</h2>
+<a id="a3dc3fee355f92de9a6f407c072725ddf" name="a3dc3fee355f92de9a6f407c072725ddf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dc3fee355f92de9a6f407c072725ddf">&#9670;&#160;</a></span>print_result()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,26 +478,26 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const vector&lt; pair&lt; char, pair&lt; int, int &gt; &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>errors</em></span>&#160;)</td>
+          <td class="paramtype">const set&lt; <a class="el" href="struct_bracket_error.html">BracketError</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>errors</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Outputs the result of bracket matching to a file. </p>
+<p>Prints errors to an output file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">outputFilename</td><td>The name of the output file. </td></tr>
-    <tr><td class="paramname">errors</td><td>A vector containing unmatched brackets with their positions. </td></tr>
+    <tr><td class="paramname">outputFilename</td><td>[in] Path to output result file. </td></tr>
+    <tr><td class="paramname">errors</td><td>[in] Set of errors to write. </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_bracket_checker2_8h_ae0e7a8f1250bac2b529e0fa6c9184e91_icgraph.png" border="0" usemap="#a_bracket_checker2_8h_ae0e7a8f1250bac2b529e0fa6c9184e91_icgraph" alt=""/></div>
-<map name="a_bracket_checker2_8h_ae0e7a8f1250bac2b529e0fa6c9184e91_icgraph" id="a_bracket_checker2_8h_ae0e7a8f1250bac2b529e0fa6c9184e91_icgraph">
-<area shape="rect" title="Outputs the result of bracket matching to a file." alt="" coords="103,5,188,32"/>
-<area shape="rect" href="_main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main function for the BracketChecker2 program." alt="" coords="5,5,55,32"/>
+<div class="center"><img src="_bracket_checker2_8h_a3dc3fee355f92de9a6f407c072725ddf_icgraph.png" border="0" usemap="#a_bracket_checker2_8h_a3dc3fee355f92de9a6f407c072725ddf_icgraph" alt=""/></div>
+<map name="a_bracket_checker2_8h_a3dc3fee355f92de9a6f407c072725ddf_icgraph" id="a_bracket_checker2_8h_a3dc3fee355f92de9a6f407c072725ddf_icgraph">
+<area shape="rect" title="Prints errors to an output file." alt="" coords="103,5,188,32"/>
+<area shape="rect" href="_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -422,21 +519,21 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Reads an input file and returns its content as a vector of strings. </p>
+<p>Reads all lines from a file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>The name of the file to read. </td></tr>
+    <tr><td class="paramname">filename</td><td>[in] Path to the input file. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector containing each line of the file as a string. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector containing each line as a string. </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_bracket_checker2_8h_a5e7b803db2016b273a77cdff3c3d0332_icgraph.png" border="0" usemap="#a_bracket_checker2_8h_a5e7b803db2016b273a77cdff3c3d0332_icgraph" alt=""/></div>
 <map name="a_bracket_checker2_8h_a5e7b803db2016b273a77cdff3c3d0332_icgraph" id="a_bracket_checker2_8h_a5e7b803db2016b273a77cdff3c3d0332_icgraph">
-<area shape="rect" title="Reads an input file and returns its content as a vector of strings." alt="" coords="103,5,208,32"/>
-<area shape="rect" href="_main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main function for the BracketChecker2 program." alt="" coords="5,5,55,32"/>
+<area shape="rect" title="Reads all lines from a file." alt="" coords="103,5,208,32"/>
+<area shape="rect" href="_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
