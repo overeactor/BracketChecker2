@@ -167,8 +167,18 @@ TEST(testBracketChecker2, ExceedsMaximumLinesAllowed) {
     EXPECT_EQ(errors, expected);
 }
 
+TEST(testBracketChecker2, ExceedsMaximumLineLength) {
+    vector<string> code = {
+        string(1001, 'a')  // One line with 1001 characters
+    };
+    set<BracketError> errors = code_validation(code);
 
+    set<BracketError> expected = {
+        {'\0', 1, 1001, TOO_LONG_LINE}
+    };
 
+    EXPECT_EQ(errors, expected);
+}
 
 
 
