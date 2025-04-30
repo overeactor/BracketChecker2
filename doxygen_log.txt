@@ -19,6 +19,8 @@ Preprocessing C:/Users/alire/Desktop/BracketChecker2/BracketChecker2/InputTest.c
 Parsing file C:/Users/alire/Desktop/BracketChecker2/BracketChecker2/InputTest.cpp...
 Preprocessing C:/Users/alire/Desktop/BracketChecker2/BracketChecker2/Main.cpp...
 Parsing file C:/Users/alire/Desktop/BracketChecker2/BracketChecker2/Main.cpp...
+Preprocessing C:/Users/alire/Desktop/BracketChecker2/BracketChecker2/Validation.cpp...
+Parsing file C:/Users/alire/Desktop/BracketChecker2/BracketChecker2/Validation.cpp...
 Building macro definition list...
 Building group list...
 Building directory list...
@@ -84,8 +86,10 @@ Parsing code for file BracketChecker2/BracketChecker2.cpp...
 Generating code for file BracketChecker2/BracketChecker2.h...
 Parsing code for file BracketChecker2/InputTest.cpp...
 Parsing code for file BracketChecker2/Main.cpp...
+Parsing code for file BracketChecker2/Validation.cpp...
 Generating file documentation...
 Generating docs for file BracketChecker2/BracketChecker2.cpp...
+Generating caller graph for function code_validation
 Generating caller graph for function isClosingBracket
 Generating caller graph for function isMatchingPair
 Generating caller graph for function isOpeningBracket
@@ -94,6 +98,7 @@ Generating caller graph for function parse_brackets
 Generating caller graph for function print_result
 Generating caller graph for function read_input_file
 Generating docs for file BracketChecker2/BracketChecker2.h...
+Generating caller graph for function code_validation
 Generating caller graph for function isClosingBracket
 Generating caller graph for function isMatchingPair
 Generating caller graph for function isOpeningBracket
@@ -107,6 +112,12 @@ Generating call graph for function main
 Generating page documentation...
 Generating group documentation...
 Generating class documentation...
+Generating docs for compound BracketError...
+C:/Users/alire/Desktop/BracketChecker2/BracketChecker2/BracketChecker2.h:85: warning: Member operator<(const BracketError &other) const (function) of struct BracketError is not documented.
+C:/Users/alire/Desktop/BracketChecker2/BracketChecker2/BracketChecker2.h:80: warning: Member bracket (variable) of struct BracketError is not documented.
+C:/Users/alire/Desktop/BracketChecker2/BracketChecker2/BracketChecker2.h:81: warning: Member line (variable) of struct BracketError is not documented.
+C:/Users/alire/Desktop/BracketChecker2/BracketChecker2/BracketChecker2.h:82: warning: Member column (variable) of struct BracketError is not documented.
+C:/Users/alire/Desktop/BracketChecker2/BracketChecker2/BracketChecker2.h:83: warning: Member type (variable) of struct BracketError is not documented.
 Generating concept documentation...
 Generating module documentation...
 Generating namespace documentation...
@@ -134,32 +145,33 @@ writing tag file...
 Running plantuml with JAVA...
 Running dot...
 Generating dot graphs using 17 parallel threads...
-Running dot for graph 1/21
-Running dot for graph 2/21
-Running dot for graph 3/21
-Running dot for graph 4/21
-Running dot for graph 5/21
-Running dot for graph 6/21
-Running dot for graph 7/21
-Running dot for graph 8/21
-Running dot for graph 9/21
-Running dot for graph 10/21
-Running dot for graph 11/21
-Running dot for graph 12/21
-Running dot for graph 13/21
-Running dot for graph 14/21
-Running dot for graph 15/21
-Running dot for graph 16/21
-Running dot for graph 17/21
-Running dot for graph 18/21
-Running dot for graph 19/21
-Running dot for graph 20/21
-Running dot for graph 21/21
+Running dot for graph 1/22
+Running dot for graph 2/22
+Running dot for graph 3/22
+Running dot for graph 4/22
+Running dot for graph 5/22
+Running dot for graph 6/22
+Running dot for graph 7/22
+Running dot for graph 8/22
+Running dot for graph 9/22
+Running dot for graph 10/22
+Running dot for graph 11/22
+Running dot for graph 12/22
+Running dot for graph 13/22
+Running dot for graph 14/22
+Running dot for graph 15/22
+Running dot for graph 16/22
+Running dot for graph 17/22
+Running dot for graph 18/22
+Running dot for graph 19/22
+Running dot for graph 20/22
+Running dot for graph 21/22
+Running dot for graph 22/22
 Patching output file 1/3
 Patching output file 2/3
 Patching output file 3/3
-type lookup cache used 8/65536 hits=6 misses=8
-symbol lookup cache used 31/65536 hits=30 misses=31
+type lookup cache used 16/65536 hits=33 misses=18
+symbol lookup cache used 59/65536 hits=93 misses=59
 finished...
 
 *** Doxygen has finished
