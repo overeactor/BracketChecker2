@@ -156,6 +156,16 @@ TEST(testBracketChecker2, CurlyDoubleQuotesShouldNotAffectBracketParsing) {
     EXPECT_EQ(errors, expected);
 }
 
+TEST(testBracketChecker2, ExceedsMaximumLinesAllowed) {
+    vector<string> longCode(1001, "int a = 0;");  // 1001 lines
+    set<BracketError> errors = code_validation(longCode);
+
+    set<BracketError> expected = {
+        {'\0', 1001, 1, TOO_LONG_PROGRAM}
+    };
+
+    EXPECT_EQ(errors, expected);
+}
 
 
 
