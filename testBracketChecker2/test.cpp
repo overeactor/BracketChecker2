@@ -181,6 +181,18 @@ TEST(testBracketChecker2, ExceedsMaximumLineLength) {
 }
 
 
+TEST(testBracketChecker2, DetectsMacroUsage) {
+    vector<string> code = {
+        "#define MAX 100"
+    };
+    set<BracketError> errors = code_validation(code);
+
+    set<BracketError> expected = {
+        {'#', 1, 1, MACRO_USAGE}
+    };
+
+    EXPECT_EQ(errors, expected);
+}
 
 
 // Needed for comparing BracketError in EXPECT_EQ
