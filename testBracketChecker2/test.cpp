@@ -2,17 +2,55 @@
 #include <gtest/gtest.h>
 #include <set>
 #include "../BracketChecker2/BracketChecker2.h"  
-#include "../BracketChecker2/BracketChecker2.cpp"  
+#include "../BracketChecker2/BracketChecker2.cpp"  // --- replace function headers from BracketChecker2.cpp to BracketChecker2.h
 
 
 using namespace std;
 
-TEST(testBracketChecker2, IsOpeningBracket) {
-    EXPECT_TRUE(isOpeningBracket('('));
-    EXPECT_TRUE(isOpeningBracket('{'));
-    EXPECT_TRUE(isOpeningBracket('['));
-    EXPECT_FALSE(isOpeningBracket('x'));
-    EXPECT_FALSE(isOpeningBracket(')'));
+/**
+ * @test Tests detection of '(' as an unmatched opening bracket.
+ */
+TEST(testBracketChecker2, DetectUnmatchedOpeningParenthesis) {
+    vector<string> code = { "(", "" };
+    set<BracketError> expected = {
+        {'(', 1, 1, UNMATCHED_BRACKET}
+    };
+    EXPECT_EQ(parse_brackets(code), expected);
+}
+
+/**
+ * @test Tests detection of '{' as an unmatched opening bracket.
+ */
+TEST(testBracketChecker2, DetectUnmatchedOpeningBrace) {
+    vector<string> code = { "{", "" };
+    set<BracketError> expected = {
+        {'{', 1, 1, UNMATCHED_BRACKET}
+    };
+    EXPECT_EQ(parse_brackets(code), expected);
+}
+
+/**
+ * @test Tests detection of '[' as an unmatched opening bracket.
+ */
+TEST(testBracketChecker2, DetectUnmatchedOpeningSquareBracket) {
+    vector<string> code = { "[", "" };
+    set<BracketError> expected = {
+        {'[', 1, 1, UNMATCHED_BRACKET}
+    };
+    EXPECT_EQ(parse_brackets(code), expected);
+}
+
+/**
+ * @test Tests that non-bracket characters like 'x' and ')' are ignored or identified as unmatched closing brackets.
+ */
+
+
+TEST(testBracketChecker2, IgnoreNonOpeningBrackets) {
+    vector<string> code = { "x)" };
+    set<BracketError> expected = {
+        {')', 1, 2, WRONG_BRACKET}
+    };
+    EXPECT_EQ(parse_brackets(code), expected);
 }
 
 TEST(testBracketChecker2, IsClosingBracket) {
@@ -58,6 +96,10 @@ TEST(testBracketChecker2, UnbalancedBrackets) {
         "}" // Missing closing '}'
     };
     set<BracketError> errors = parse_brackets(code);
+    // set<BracketError> expected_errors
+    // BracketError expected_err = {0, 9, ...}
+    // expected_errors.add()
+    // We should compare two sets 
     EXPECT_FALSE(errors.empty()) << "Expected unmatched brackets.";
 }
 
