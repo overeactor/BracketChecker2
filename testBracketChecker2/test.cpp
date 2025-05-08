@@ -53,13 +53,50 @@ TEST(testBracketChecker2, IgnoreNonOpeningBrackets) {
     EXPECT_EQ(parse_brackets(code), expected);
 }
 
-TEST(testBracketChecker2, IsClosingBracket) {
-    EXPECT_TRUE(isClosingBracket(')'));
-    EXPECT_TRUE(isClosingBracket('}'));
-    EXPECT_TRUE(isClosingBracket(']'));
-    EXPECT_FALSE(isClosingBracket('('));
-    EXPECT_FALSE(isClosingBracket('a'));
+/**
+ * @test Tests detection of ')' as an unmatched closing bracket.
+ */
+TEST(testBracketChecker2, DetectUnmatchedClosingParenthesis) {
+    vector<string> code = { ")" };
+    set<BracketError> expected = {
+        {')', 1, 1, WRONG_BRACKET}
+    };
+    EXPECT_EQ(parse_brackets(code), expected);
 }
+
+/**
+ * @test Tests detection of '}' as an unmatched closing bracket.
+ */
+TEST(testBracketChecker2, DetectUnmatchedClosingBrace) {
+    vector<string> code = { "}" };
+    set<BracketError> expected = {
+        {'}', 1, 1, WRONG_BRACKET}
+    };
+    EXPECT_EQ(parse_brackets(code), expected);
+}
+
+/**
+ * @test Tests detection of ']' as an unmatched closing bracket.
+ */
+TEST(testBracketChecker2, DetectUnmatchedClosingSquareBracket) {
+    vector<string> code = { "]" };
+    set<BracketError> expected = {
+        {']', 1, 1, WRONG_BRACKET}
+    };
+    EXPECT_EQ(parse_brackets(code), expected);
+}
+
+/**
+ * @test Tests that non-closing brackets like '(' and 'a' are ignored.
+ */
+TEST(testBracketChecker2, IgnoreNonClosingBrackets) {
+    vector<string> code = { "(a" };
+    set<BracketError> expected = {
+        {'(', 1, 1, UNMATCHED_BRACKET}
+    };
+    EXPECT_EQ(parse_brackets(code), expected);
+}
+
 
 TEST(testBracketChecker2, IsMatchingPair) {
     EXPECT_TRUE(isMatchingPair('(', ')'));
