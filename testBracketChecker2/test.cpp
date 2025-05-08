@@ -8,7 +8,8 @@
 using namespace std;
 
 /**
- * @test Tests detection of '(' as an unmatched opening bracket.
+ * @test
+ * @brief Tests detection of unmatched opening parenthesis.
  */
 TEST(testBracketChecker2, DetectUnmatchedOpeningParenthesis) {
     vector<string> code = { "(", "" };
@@ -19,7 +20,8 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningParenthesis) {
 }
 
 /**
- * @test Tests detection of '{' as an unmatched opening bracket.
+ * @test
+ * @brief Tests detection of unmatched opening brace.
  */
 TEST(testBracketChecker2, DetectUnmatchedOpeningBrace) {
     vector<string> code = { "{", "" };
@@ -30,7 +32,8 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningBrace) {
 }
 
 /**
- * @test Tests detection of '[' as an unmatched opening bracket.
+ * @test
+ * @brief Tests detection of unmatched opening square bracket.
  */
 TEST(testBracketChecker2, DetectUnmatchedOpeningSquareBracket) {
     vector<string> code = { "[", "" };
@@ -40,11 +43,11 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningSquareBracket) {
     EXPECT_EQ(parse_brackets(code), expected);
 }
 
+
 /**
- * @test Tests that non-bracket characters like 'x' and ')' are ignored or identified as unmatched closing brackets.
+ * @test
+ * @brief Tests ignored non-opening characters and detection of unmatched closing parenthesis.
  */
-
-
 TEST(testBracketChecker2, IgnoreNonOpeningBrackets) {
     vector<string> code = { "x)" };
     set<BracketError> expected = {
@@ -54,7 +57,8 @@ TEST(testBracketChecker2, IgnoreNonOpeningBrackets) {
 }
 
 /**
- * @test Tests detection of ')' as an unmatched closing bracket.
+ * @test
+ * @brief Tests detection of unmatched closing parenthesis.
  */
 TEST(testBracketChecker2, DetectUnmatchedClosingParenthesis) {
     vector<string> code = { ")" };
@@ -65,7 +69,8 @@ TEST(testBracketChecker2, DetectUnmatchedClosingParenthesis) {
 }
 
 /**
- * @test Tests detection of '}' as an unmatched closing bracket.
+ * @test
+ * @brief Tests detection of unmatched closing brace.
  */
 TEST(testBracketChecker2, DetectUnmatchedClosingBrace) {
     vector<string> code = { "}" };
@@ -76,7 +81,8 @@ TEST(testBracketChecker2, DetectUnmatchedClosingBrace) {
 }
 
 /**
- * @test Tests detection of ']' as an unmatched closing bracket.
+ * @test
+ * @brief Tests detection of unmatched closing square bracket.
  */
 TEST(testBracketChecker2, DetectUnmatchedClosingSquareBracket) {
     vector<string> code = { "]" };
@@ -87,7 +93,8 @@ TEST(testBracketChecker2, DetectUnmatchedClosingSquareBracket) {
 }
 
 /**
- * @test Tests that non-closing brackets like '(' and 'a' are ignored.
+ * @test
+ * @brief Tests ignored characters that aren't brackets.
  */
 TEST(testBracketChecker2, IgnoreNonClosingBrackets) {
     vector<string> code = { "(a" };
@@ -99,7 +106,8 @@ TEST(testBracketChecker2, IgnoreNonClosingBrackets) {
 
 
 /**
- * @test Tests detection of a valid '()' bracket pair.
+ * @test
+ * @brief Tests detection of matched parentheses.
  */
 TEST(testBracketChecker2, DetectMatchingParentheses) {
     vector<string> code = { "()" };
@@ -108,7 +116,8 @@ TEST(testBracketChecker2, DetectMatchingParentheses) {
 }
 
 /**
- * @test Tests detection of a valid '[]' bracket pair.
+ * @test
+ * @brief Tests detection of matched square brackets.
  */
 TEST(testBracketChecker2, DetectMatchingSquareBrackets) {
     vector<string> code = { "[]" };
@@ -117,7 +126,8 @@ TEST(testBracketChecker2, DetectMatchingSquareBrackets) {
 }
 
 /**
- * @test Tests detection of a valid '{}' bracket pair.
+ * @test
+ * @brief Tests detection of matched braces.
  */
 TEST(testBracketChecker2, DetectMatchingBraces) {
     vector<string> code = { "{}" };
@@ -126,7 +136,8 @@ TEST(testBracketChecker2, DetectMatchingBraces) {
 }
 
 /**
- * @test Tests detection of incorrect bracket pair '(['.
+ * @test
+ * @brief Tests detection of mismatched brackets: parentheses and square bracket.
  */
 TEST(testBracketChecker2, DetectMismatchedParenthesesAndSquare) {
     vector<string> code = { "([" };
@@ -138,7 +149,8 @@ TEST(testBracketChecker2, DetectMismatchedParenthesesAndSquare) {
 }
 
 /**
- * @test Tests detection of incorrect bracket pair '{)'.
+ * @test
+ * @brief Tests detection of mismatched brackets: brace and parenthesis.
  */
 TEST(testBracketChecker2, DetectMismatchedBraceAndParenthesis) {
     vector<string> code = { "{)" };
@@ -149,11 +161,19 @@ TEST(testBracketChecker2, DetectMismatchedBraceAndParenthesis) {
     EXPECT_EQ(parse_brackets(code), expected);
 }
 
+/**
+ * @test
+ * @brief Tests reading input file successfully.
+ */
 TEST(testBracketChecker2, ReadInputFile) {
     vector<string> lines = read_input_file("test_input.txt");
     EXPECT_FALSE(lines.empty()) << "File should be read successfully.";
 }
 
+/**
+ * @test
+ * @brief Tests detection of fully balanced bracket nesting.
+ */
 TEST(testBracketChecker2, BalancedBrackets) {
     vector<string> code = {
         "int main() {",
@@ -168,6 +188,14 @@ TEST(testBracketChecker2, BalancedBrackets) {
     EXPECT_TRUE(errors.empty()) << "Expected no unmatched brackets.";
 }
 
+/**
+ * @test
+ * @brief Tests detection of unmatched opening bracket in a function with nested scope.
+ * 
+ * The test simulates a case where the main function includes an if-statement with its own scope,
+ * but the final closing brace for the main function is missing. The parser should return an
+ * unmatched bracket error for the first opening brace.
+ */
 TEST(testBracketChecker2, UnbalancedBrackets) {
     vector<string> code = {
         "int main() {",
@@ -185,6 +213,10 @@ TEST(testBracketChecker2, UnbalancedBrackets) {
     EXPECT_EQ(actual, expected);
 }
 
+/**
+ * @test
+ * @brief Tests parser ignoring brackets inside strings and comments.
+ */
 TEST(testBracketChecker2, IgnoresCommentsAndStrings) {
     vector<string> code = {
         "int main() {",
@@ -199,12 +231,20 @@ TEST(testBracketChecker2, IgnoresCommentsAndStrings) {
     EXPECT_TRUE(errors.empty()) << "Expected no unmatched brackets.";
 }
 
+/**
+ * @test
+ * @brief Tests parsing an empty file.
+ */
 TEST(testBracketChecker2, EmptyFile) {
     vector<string> code = {};
     set<BracketError> errors = parse_brackets(code);
     EXPECT_TRUE(errors.empty()) << "Expected no errors for an empty file.";
 }
 
+/**
+ * @test
+ * @brief Tests parsing comments only (no code).
+ */
 TEST(testBracketChecker2, OnlyComments) {
     vector<string> code = {
         "// This is a comment with { brackets }",
@@ -214,6 +254,10 @@ TEST(testBracketChecker2, OnlyComments) {
     EXPECT_TRUE(errors.empty()) << "Expected no errors for a file with only comments.";
 }
 
+/**
+ * @test
+ * @brief Tests parsing a file with only whitespace.
+ */
 TEST(testBracketChecker2, onlyWhitespace) {
     vector<string> code = {
         "   ",
@@ -223,6 +267,11 @@ TEST(testBracketChecker2, onlyWhitespace) {
     EXPECT_TRUE(errors.empty()) << "Expected no errors for a file with only white spaces.";
 }
 
+
+/**
+ * @test
+ * @brief Tests ignoring brackets in string literals.
+ */
 TEST(testBracketChecker2, IgnoresBracketsInsideStringLiterals) {
     vector<string> code = {
         "int main() {",
@@ -234,6 +283,10 @@ TEST(testBracketChecker2, IgnoresBracketsInsideStringLiterals) {
     EXPECT_TRUE(errors.empty()) << "Expected no unmatched brackets in string literals.";
 }
 
+/**
+ * @test
+ * @brief Tests detection of minimal nested mismatch.
+ */
 TEST(BracketChecker2Test, MinimalNestedMismatch_Set) {
     vector<string> input = {
         "({) }"
@@ -249,6 +302,10 @@ TEST(BracketChecker2Test, MinimalNestedMismatch_Set) {
 }
 
 
+/**
+ * @test
+ * @brief Tests detection of unexpected opening brackets across lines.
+ */
 TEST(BracketChecker2Test, UnexpectedOpeningBracketLine) {
     vector<string> input = {
         "Int main(",
@@ -264,7 +321,10 @@ TEST(BracketChecker2Test, UnexpectedOpeningBracketLine) {
     EXPECT_EQ(expected, actual);
 }
 
-
+/**
+ * @test
+ * @brief Tests parser handling of curly double quotes with brackets.
+ */
 TEST(testBracketChecker2, CurlyDoubleQuotesShouldNotAffectBracketParsing) {
     vector<string> code = {
         "{string str = “}”"
@@ -280,6 +340,10 @@ TEST(testBracketChecker2, CurlyDoubleQuotesShouldNotAffectBracketParsing) {
     EXPECT_EQ(errors, expected);
 }
 
+/**
+ * @test
+ * @brief Tests detection of excessive line count.
+ */
 TEST(testBracketChecker2, ExceedsMaximumLinesAllowed) {
     vector<string> longCode(1001, "int a = 0;");  // 1001 lines
     set<BracketError> errors = code_validation(longCode);
@@ -291,6 +355,10 @@ TEST(testBracketChecker2, ExceedsMaximumLinesAllowed) {
     EXPECT_EQ(errors, expected);
 }
 
+/**
+ * @test
+ * @brief Tests detection of excessively long single line.
+ */
 TEST(testBracketChecker2, ExceedsMaximumLineLength) {
     vector<string> code = {
         string(1001, 'a')  // One line with 1001 characters
@@ -304,7 +372,10 @@ TEST(testBracketChecker2, ExceedsMaximumLineLength) {
     EXPECT_EQ(errors, expected);
 }
 
-
+/**
+ * @test
+ * @brief Tests detection of disallowed macro usage.
+ */
 TEST(testBracketChecker2, DetectsMacroUsage) {
     vector<string> code = {
         "#define MAX 100"
@@ -319,7 +390,9 @@ TEST(testBracketChecker2, DetectsMacroUsage) {
 }
 
 
-// Needed for comparing BracketError in EXPECT_EQ
+/**
+ * @brief Comparison operator for BracketError to support EXPECT_EQ.
+ */
 bool operator==(const BracketError& lhs, const BracketError& rhs) {
     return lhs.bracket == rhs.bracket &&
         lhs.line == rhs.line &&
@@ -327,7 +400,9 @@ bool operator==(const BracketError& lhs, const BracketError& rhs) {
         lhs.type == rhs.type;
 }
 
-
+/**
+ * @brief Main function to run all Google Test unit tests.
+ */
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
