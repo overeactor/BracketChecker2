@@ -98,12 +98,55 @@ TEST(testBracketChecker2, IgnoreNonClosingBrackets) {
 }
 
 
-TEST(testBracketChecker2, IsMatchingPair) {
-    EXPECT_TRUE(isMatchingPair('(', ')'));
-    EXPECT_TRUE(isMatchingPair('[', ']'));
-    EXPECT_TRUE(isMatchingPair('{', '}'));
-    EXPECT_FALSE(isMatchingPair('(', ']'));
-    EXPECT_FALSE(isMatchingPair('{', ')'));
+/**
+ * @test Tests detection of a valid '()' bracket pair.
+ */
+TEST(testBracketChecker2, DetectMatchingParentheses) {
+    vector<string> code = { "()" };
+    set<BracketError> expected = {};
+    EXPECT_EQ(parse_brackets(code), expected);
+}
+
+/**
+ * @test Tests detection of a valid '[]' bracket pair.
+ */
+TEST(testBracketChecker2, DetectMatchingSquareBrackets) {
+    vector<string> code = { "[]" };
+    set<BracketError> expected = {};
+    EXPECT_EQ(parse_brackets(code), expected);
+}
+
+/**
+ * @test Tests detection of a valid '{}' bracket pair.
+ */
+TEST(testBracketChecker2, DetectMatchingBraces) {
+    vector<string> code = { "{}" };
+    set<BracketError> expected = {};
+    EXPECT_EQ(parse_brackets(code), expected);
+}
+
+/**
+ * @test Tests detection of incorrect bracket pair '(['.
+ */
+TEST(testBracketChecker2, DetectMismatchedParenthesesAndSquare) {
+    vector<string> code = { "([" };
+    set<BracketError> expected = {
+        {'[', 1, 2, UNMATCHED_BRACKET},
+        {'(', 1, 1, UNMATCHED_BRACKET}
+    };
+    EXPECT_EQ(parse_brackets(code), expected);
+}
+
+/**
+ * @test Tests detection of incorrect bracket pair '{)'.
+ */
+TEST(testBracketChecker2, DetectMismatchedBraceAndParenthesis) {
+    vector<string> code = { "{)" };
+    set<BracketError> expected = {
+        {')', 1, 2, WRONG_BRACKET},
+        {'{', 1, 1, UNMATCHED_BRACKET}
+    };
+    EXPECT_EQ(parse_brackets(code), expected);
 }
 
 TEST(testBracketChecker2, ReadInputFile) {
