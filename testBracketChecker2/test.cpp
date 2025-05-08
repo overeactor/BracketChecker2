@@ -173,14 +173,16 @@ TEST(testBracketChecker2, UnbalancedBrackets) {
         "int main() {",
         "    if (true) {",
         "        cout << \"Hello\";",
-        "}" // Missing closing '}'
+        "}" // Missing one closing '}'
     };
-    set<BracketError> errors = parse_brackets(code);
-    // set<BracketError> expected_errors
-    // BracketError expected_err = {0, 9, ...}
-    // expected_errors.add()
-    // We should compare two sets 
-    EXPECT_FALSE(errors.empty()) << "Expected unmatched brackets.";
+
+    set<BracketError> expected = {
+        {'{', 1, 12, UNMATCHED_BRACKET}
+        
+    };
+
+    set<BracketError> actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
 }
 
 TEST(testBracketChecker2, IgnoresCommentsAndStrings) {
