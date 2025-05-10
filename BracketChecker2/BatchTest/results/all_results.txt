@@ -1,0 +1,35 @@
+BracketChecker2 Batch Test Results 
+=================================== 
+ 
+Testing test1_simple.cpp... 
+---------- 
+All brackets are correctly closed.
+ 
+ 
+Testing test2_strings.cpp... 
+---------- 
+All brackets are correctly closed.
+ 
+ 
+Testing test3_char.cpp... 
+---------- 
+All brackets are correctly closed.
+ 
+ 
+Testing test4_complex.cpp... 
+---------- 
+All brackets are correctly closed.
+ 
+ 
+Testing test5_unmatched.cpp... 
+---------- 
+Unmatched or invalid constructs found: 
+At Line 1, Column 12: Unmatched opening bracket '{'.
+At Line 2, Column 15: Unmatched opening bracket '{'.
+ 
+ 
+Testing test6_wrong_closing.cpp... 
+---------- 
+All brackets are correctly closed.
+ 
+ 
