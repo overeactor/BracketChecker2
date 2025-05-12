@@ -1,14 +1,28 @@
+/**
+ * @file test.cpp
+ * @brief Unit tests for BracketChecker2 using Google Test.
+ *
+ * This file contains test cases to verify the correctness of the
+ * BracketChecker2 library. It covers:
+ * - Bracket matching and mismatching scenarios.
+ * - Detection of formatting violations (long lines, macros).
+ * - Ignoring brackets inside strings and comments.
+ * - File reading behavior and edge cases (empty input, comments only).
+ *
+ * Each test checks the output of `parse_brackets` or `code_validation`
+ * against expected `BracketError` results.
+ */
+
 #include "pch.h"
 #include <gtest/gtest.h>
 #include <set>
 #include "../BracketChecker2/BracketChecker2.h"  
-#include "../BracketChecker2/BracketChecker2.cpp"  // --- replace function headers from BracketChecker2.cpp to BracketChecker2.h
+#include "../BracketChecker2/BracketChecker2.cpp"  
 
 
 using namespace std;
 
 /**
- * @test
  * @brief Tests detection of unmatched opening parenthesis.
  */
 TEST(testBracketChecker2, DetectUnmatchedOpeningParenthesis) {
@@ -20,7 +34,6 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningParenthesis) {
 }
 
 /**
- * @test
  * @brief Tests detection of unmatched opening brace.
  */
 TEST(testBracketChecker2, DetectUnmatchedOpeningBrace) {
@@ -32,7 +45,7 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningBrace) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of unmatched opening square bracket.
  */
 TEST(testBracketChecker2, DetectUnmatchedOpeningSquareBracket) {
@@ -45,7 +58,7 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningSquareBracket) {
 
 
 /**
- * @test
+ * 
  * @brief Tests ignored non-opening characters and detection of unmatched closing parenthesis.
  */
 TEST(testBracketChecker2, IgnoreNonOpeningBrackets) {
@@ -57,7 +70,7 @@ TEST(testBracketChecker2, IgnoreNonOpeningBrackets) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of unmatched closing parenthesis.
  */
 TEST(testBracketChecker2, DetectUnmatchedClosingParenthesis) {
@@ -69,7 +82,7 @@ TEST(testBracketChecker2, DetectUnmatchedClosingParenthesis) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of unmatched closing brace.
  */
 TEST(testBracketChecker2, DetectUnmatchedClosingBrace) {
@@ -81,7 +94,7 @@ TEST(testBracketChecker2, DetectUnmatchedClosingBrace) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of unmatched closing square bracket.
  */
 TEST(testBracketChecker2, DetectUnmatchedClosingSquareBracket) {
@@ -93,7 +106,7 @@ TEST(testBracketChecker2, DetectUnmatchedClosingSquareBracket) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests ignored characters that aren't brackets.
  */
 TEST(testBracketChecker2, IgnoreNonClosingBrackets) {
@@ -106,7 +119,7 @@ TEST(testBracketChecker2, IgnoreNonClosingBrackets) {
 
 
 /**
- * @test
+ * 
  * @brief Tests detection of matched parentheses.
  */
 TEST(testBracketChecker2, DetectMatchingParentheses) {
@@ -116,7 +129,7 @@ TEST(testBracketChecker2, DetectMatchingParentheses) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of matched square brackets.
  */
 TEST(testBracketChecker2, DetectMatchingSquareBrackets) {
@@ -126,7 +139,7 @@ TEST(testBracketChecker2, DetectMatchingSquareBrackets) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of matched braces.
  */
 TEST(testBracketChecker2, DetectMatchingBraces) {
@@ -136,7 +149,7 @@ TEST(testBracketChecker2, DetectMatchingBraces) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of mismatched brackets: parentheses and square bracket.
  */
 TEST(testBracketChecker2, DetectMismatchedParenthesesAndSquare) {
@@ -149,7 +162,7 @@ TEST(testBracketChecker2, DetectMismatchedParenthesesAndSquare) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of mismatched brackets: brace and parenthesis.
  */
 TEST(testBracketChecker2, DetectMismatchedBraceAndParenthesis) {
@@ -162,7 +175,7 @@ TEST(testBracketChecker2, DetectMismatchedBraceAndParenthesis) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests reading input file successfully.
  */
 TEST(testBracketChecker2, ReadInputFile) {
@@ -171,7 +184,7 @@ TEST(testBracketChecker2, ReadInputFile) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of fully balanced bracket nesting.
  */
 TEST(testBracketChecker2, BalancedBrackets) {
@@ -189,7 +202,7 @@ TEST(testBracketChecker2, BalancedBrackets) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of unmatched opening bracket in a function with nested scope.
  * 
  * The test simulates a case where the main function includes an if-statement with its own scope,
@@ -214,7 +227,7 @@ TEST(testBracketChecker2, UnbalancedBrackets) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests parser ignoring brackets inside strings and comments.
  */
 TEST(testBracketChecker2, IgnoresCommentsAndStrings) {
@@ -232,7 +245,7 @@ TEST(testBracketChecker2, IgnoresCommentsAndStrings) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests parsing an empty file.
  */
 TEST(testBracketChecker2, EmptyFile) {
@@ -242,7 +255,7 @@ TEST(testBracketChecker2, EmptyFile) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests parsing comments only (no code).
  */
 TEST(testBracketChecker2, OnlyComments) {
@@ -255,7 +268,7 @@ TEST(testBracketChecker2, OnlyComments) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests parsing a file with only whitespace.
  */
 TEST(testBracketChecker2, onlyWhitespace) {
@@ -269,7 +282,7 @@ TEST(testBracketChecker2, onlyWhitespace) {
 
 
 /**
- * @test
+ * 
  * @brief Tests ignoring brackets in string literals.
  */
 TEST(testBracketChecker2, IgnoresBracketsInsideStringLiterals) {
@@ -284,7 +297,7 @@ TEST(testBracketChecker2, IgnoresBracketsInsideStringLiterals) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of minimal nested mismatch.
  */
 TEST(BracketChecker2Test, MinimalNestedMismatch_Set) {
@@ -303,7 +316,7 @@ TEST(BracketChecker2Test, MinimalNestedMismatch_Set) {
 
 
 /**
- * @test
+ * 
  * @brief Tests detection of unexpected opening brackets across lines.
  */
 TEST(BracketChecker2Test, UnexpectedOpeningBracketLine) {
@@ -322,7 +335,7 @@ TEST(BracketChecker2Test, UnexpectedOpeningBracketLine) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests parser handling of curly double quotes with brackets.
  */
 TEST(testBracketChecker2, CurlyDoubleQuotesShouldNotAffectBracketParsing) {
@@ -341,7 +354,7 @@ TEST(testBracketChecker2, CurlyDoubleQuotesShouldNotAffectBracketParsing) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of excessive line count.
  */
 TEST(testBracketChecker2, ExceedsMaximumLinesAllowed) {
@@ -356,7 +369,7 @@ TEST(testBracketChecker2, ExceedsMaximumLinesAllowed) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of excessively long single line.
  */
 TEST(testBracketChecker2, ExceedsMaximumLineLength) {
@@ -373,7 +386,7 @@ TEST(testBracketChecker2, ExceedsMaximumLineLength) {
 }
 
 /**
- * @test
+ * 
  * @brief Tests detection of disallowed macro usage.
  */
 TEST(testBracketChecker2, DetectsMacroUsage) {
