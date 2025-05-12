@@ -1,5 +1,7 @@
 <map id="read_input_file" name="read_input_file">
-<area shape="rect" id="Node000001" title="Reads all lines from a file." alt="" coords="103,5,208,32"/>
-<area shape="rect" id="Node000002" href="$_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,55,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+<area shape="rect" id="Node000001" title="Reads all lines from a file." alt="" coords="109,31,214,57"/>
+<area shape="rect" id="Node000002" href="$_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="8,5,58,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,33,58,26,59,21,94,28"/>
+<area shape="rect" id="Node000003" href="$test_8cpp.html#a959252eac394cf197e4664fc622a9c14" title="Tests reading input file successfully." alt="" coords="5,56,61,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="94,60,62,67,61,61,93,55"/>
 </map>

@@ -26,6 +26,7 @@ var NAVTREE =
 [
   [ "BracketChecker2", "index.html", [
     [ "BracketChecker2 Documentation", "index.html", "index" ],
+    [ "Test List", "test.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ]

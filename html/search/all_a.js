@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['too_5flong_5fline_0',['TOO_LONG_LINE',['../_bracket_checker2_8h.html#a584a50e7fd4e7f71d8183632fc0b4d58ab99ec1fedb7d5f6c965704685d6643c4',1,'BracketChecker2.h']]],
-  ['too_5flong_5fprogram_1',['TOO_LONG_PROGRAM',['../_bracket_checker2_8h.html#a584a50e7fd4e7f71d8183632fc0b4d58ad223f2ad4ba5802fa46334d12971a67c',1,'BracketChecker2.h']]]
+  ['parse_5fbrackets_0',['parse_brackets',['../_bracket_checker2_8cpp.html#a7cb2ad2d8788b6a201fbfe8ca26320e9',1,'parse_brackets(const vector&lt; string &gt; &amp;lines):&#160;BracketChecker2.cpp'],['../_bracket_checker2_8h.html#a7cb2ad2d8788b6a201fbfe8ca26320e9',1,'parse_brackets(const vector&lt; string &gt; &amp;lines):&#160;BracketChecker2.cpp']]],
+  ['print_5fresult_1',['print_result',['../_bracket_checker2_8cpp.html#a3dc3fee355f92de9a6f407c072725ddf',1,'print_result(const string &amp;outputFilename, const set&lt; BracketError &gt; &amp;errors):&#160;BracketChecker2.cpp'],['../_bracket_checker2_8h.html#a3dc3fee355f92de9a6f407c072725ddf',1,'print_result(const string &amp;outputFilename, const set&lt; BracketError &gt; &amp;errors):&#160;BracketChecker2.cpp']]]
 ];

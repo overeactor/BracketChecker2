@@ -1,0 +1,11 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="Node000001" title="Tests parser handling of curly double quotes with brackets." alt="" coords="5,56,61,83"/>
+<area shape="rect" id="Node000002" href="$_bracket_checker2_8cpp.html#a7cb2ad2d8788b6a201fbfe8ca26320e9" title="Parses brackets in the source code." alt="" coords="109,56,219,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,67,93,67,93,72,61,72"/>
+<area shape="rect" id="Node000003" href="$_bracket_checker2_8cpp.html#ac72790b62b9089fc49ff0db095d0c0ba" title="Checks whether a character is a closing bracket." alt="" coords="269,5,389,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="209,53,268,35,270,40,211,58"/>
+<area shape="rect" id="Node000004" href="$_bracket_checker2_8cpp.html#a67294e9c8decb429efaf45b94dec6145" title="Checks whether two characters form a valid matching bracket pair." alt="" coords="276,56,383,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="219,67,260,67,260,72,219,72"/>
+<area shape="rect" id="Node000005" href="$_bracket_checker2_8cpp.html#a4b3b8aa187dbfa855fda2e74c31167ef" title="Checks whether a character is an opening bracket." alt="" coords="267,107,391,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="211,81,270,99,268,104,209,86"/>
+</map>
