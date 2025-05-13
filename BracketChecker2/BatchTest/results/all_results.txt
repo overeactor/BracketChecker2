@@ -1,35 +1,71 @@
 BracketChecker2 Batch Test Results 
 =================================== 
  
-Testing test1_simple.cpp... 
+Running test1_simple.cpp 
+Description: Testing simple bracket matching. 
 ---------- 
+=== Result === 
 All brackets are correctly closed.
  
- 
-Testing test2_strings.cpp... 
+Running test2_strings.cpp 
+Description: Testing brackets inside strings. 
 ---------- 
+=== Result === 
 All brackets are correctly closed.
  
- 
-Testing test3_char.cpp... 
+Running test3_char.cpp 
+Description: Testing brackets inside character literals. 
 ---------- 
+=== Result === 
 All brackets are correctly closed.
  
- 
-Testing test4_complex.cpp... 
+Running test4_complex.cpp 
+Description: Testing complex nesting and mixed types. 
 ---------- 
+=== Result === 
 All brackets are correctly closed.
  
- 
-Testing test5_unmatched.cpp... 
+Running test5_unmatched.cpp 
+Description: Testing unmatched opening brackets. 
 ---------- 
+=== Result === 
 Unmatched or invalid constructs found: 
 At Line 1, Column 12: Unmatched opening bracket '{'.
 At Line 2, Column 15: Unmatched opening bracket '{'.
  
- 
-Testing test6_wrong_closing.cpp... 
+Running test6_wrong_closing.cpp 
+Description: Testing wrong closing brackets. 
 ---------- 
+=== Result === 
 All brackets are correctly closed.
  
+Running test7_1001_lines.cpp 
+Description: Testing code with 1001 lines (TOO_LONG_PROGRAM). 
+---------- 
+=== Result === 
+Unmatched or invalid constructs found: 
+At Line 1001, Column 1: Too many lines in the program.
+ 
+Running test8_1001_chars.cpp 
+Description: Testing line with 1001 characters (TOO_LONG_LINE). 
+---------- 
+=== Result === 
+Unmatched or invalid constructs found: 
+At Line 1, Column 1001: Line exceeds maximum length.
+ 
+Running test9_define.cpp 
+Description: Testing macro usage (#define detection). 
+---------- 
+=== Result === 
+Unmatched or invalid constructs found: 
+At Line 1, Column 1: Usage of #define is not allowed.
+ 
+Running test10_empty.cpp 
+Description: Testing completely empty file. 
+---------- 
+=== Result === 
+All brackets are correctly closed.
+ 
+Skipping test11_not_cpp.txt – not a .cpp file. 
+Description: Testing a non-C++ file (should be ignored or flagged). 
  
