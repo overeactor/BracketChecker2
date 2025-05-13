@@ -1,4 +1,4 @@
-/**
+Ôªø/**
  * @file test.cpp
  * @brief Unit tests for BracketChecker2 using Google Test.
  *
@@ -20,7 +20,65 @@
 #include "../BracketChecker2/BracketChecker2.cpp"  
 
 
+/* kuliokin: Add a function to compare set and print message if sets are not equlas...
+* difference between two sets
+Example: your set does not contain {1,1,CLOSE} but it expected
+Example: your set contain {1,1,CLOSE} but it is not expected*/
+
+
+
+/**
+  * @brief Prints differences between two sets of BracketError.
+  * @param expected The expected set of BracketError.
+  * @param actual The actual set of BracketError produced by the parser.
+  */
+void print_set_difference(const std::set<BracketError>& expected, const std::set<BracketError>& actual) {
+    if (expected == actual) {
+        std::cout << "Sets are identical." << std::endl;
+        return;
+    }
+
+    std::set<BracketError> missing, extra;
+
+    std::set_difference(expected.begin(), expected.end(), actual.begin(), actual.end(),
+        std::inserter(missing, missing.begin()));
+    std::set_difference(actual.begin(), actual.end(), expected.begin(), expected.end(),
+        std::inserter(extra, extra.begin()));
+
+    if (!missing.empty()) {
+        std::cout << "Expected but not found:" << std::endl;
+        for (const auto& e : missing) {
+            std::cout << "  {" << e.bracket << "," << e.line << "," << e.column << "," << e.type << "}" << std::endl;
+        }
+    }
+
+    if (!extra.empty()) {
+        std::cout << "Found but not expected:" << std::endl;
+        for (const auto& e : extra) {
+            std::cout << "  {" << e.bracket << "," << e.line << "," << e.column << "," << e.type << "}" << std::endl;
+        }
+    }
+}
+
+
+
 using namespace std;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * @test DetectUnmatchedOpeningParenthesis
@@ -32,6 +90,7 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningParenthesis) {
         {'(', 1, 1, UNMATCHED_BRACKET}
     };
     EXPECT_EQ(parse_brackets(code), expected);
+    /*function call print_set_difference(...)*/
 }
 
 /**
@@ -342,7 +401,7 @@ TEST(BracketChecker2Test, UnexpectedOpeningBracketLine) {
  */
 TEST(testBracketChecker2, CurlyDoubleQuotesShouldNotAffectBracketParsing) {
     vector<string> code = {
-        "{string str = ì}î"
+        "{string str = ‚Äú}‚Äù"
     };
 
     set<BracketError> errors = parse_brackets(code);
