@@ -66,20 +66,6 @@ using namespace std;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * @test DetectUnmatchedOpeningParenthesis
  * @brief Tests detection of an unmatched opening parenthesis.
@@ -90,6 +76,7 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningParenthesis) {
         {'(', 1, 1, UNMATCHED_BRACKET}
     };
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
     /*function call print_set_difference(...)*/
 }
 
@@ -103,6 +90,7 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningBrace) {
         {'{', 1, 1, UNMATCHED_BRACKET}
     };
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 /**
@@ -115,6 +103,7 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningSquareBracket) {
         {'[', 1, 1, UNMATCHED_BRACKET}
     };
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 
@@ -128,6 +117,7 @@ TEST(testBracketChecker2, IgnoreNonOpeningBrackets) {
         {')', 1, 2, WRONG_BRACKET}
     };
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 /**
@@ -140,6 +130,7 @@ TEST(testBracketChecker2, DetectUnmatchedClosingParenthesis) {
         {')', 1, 1, WRONG_BRACKET}
     };
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 /**
@@ -152,6 +143,7 @@ TEST(testBracketChecker2, DetectUnmatchedClosingBrace) {
         {'}', 1, 1, WRONG_BRACKET}
     };
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 /**
@@ -164,6 +156,7 @@ TEST(testBracketChecker2, DetectUnmatchedClosingSquareBracket) {
         {']', 1, 1, WRONG_BRACKET}
     };
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 /**
@@ -176,6 +169,7 @@ TEST(testBracketChecker2, IgnoreNonClosingBrackets) {
         {'(', 1, 1, UNMATCHED_BRACKET}
     };
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 
@@ -187,6 +181,7 @@ TEST(testBracketChecker2, DetectMatchingParentheses) {
     vector<string> code = { "()" };
     set<BracketError> expected = {};
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 /**
@@ -197,6 +192,7 @@ TEST(testBracketChecker2, DetectMatchingSquareBrackets) {
     vector<string> code = { "[]" };
     set<BracketError> expected = {};
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 /**
@@ -207,6 +203,7 @@ TEST(testBracketChecker2, DetectMatchingBraces) {
     vector<string> code = { "{}" };
     set<BracketError> expected = {};
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 /**
@@ -220,6 +217,7 @@ TEST(testBracketChecker2, DetectMismatchedParenthesesAndSquare) {
         {'(', 1, 1, UNMATCHED_BRACKET}
     };
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 /**
@@ -233,6 +231,7 @@ TEST(testBracketChecker2, DetectMismatchedBraceAndParenthesis) {
         {'{', 1, 1, UNMATCHED_BRACKET}
     };
     EXPECT_EQ(parse_brackets(code), expected);
+    print_set_difference(expected, parse_brackets(code));
 }
 
 /**
@@ -265,7 +264,7 @@ TEST(testBracketChecker2, BalancedBrackets) {
 /**
  * @test UnbalancedBrackets
  * @brief Tests detection of unmatched opening bracket in a function with nested scope.
- * 
+ *
  * The test simulates a case where the main function includes an if-statement with its own scope,
  * but the final closing brace for the main function is missing. The parser should return an
  * unmatched bracket error for the first opening brace.
@@ -280,11 +279,12 @@ TEST(testBracketChecker2, UnbalancedBrackets) {
 
     set<BracketError> expected = {
         {'{', 1, 12, UNMATCHED_BRACKET}
-        
+
     };
 
     set<BracketError> actual = parse_brackets(code);
     EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 /**
@@ -373,6 +373,7 @@ TEST(BracketChecker2Test, MinimalNestedMismatch_Set) {
 
     auto actual = parse_brackets(input);
     EXPECT_EQ(expected, actual);
+    print_set_difference(actual, expected);
 }
 
 
@@ -393,6 +394,7 @@ TEST(BracketChecker2Test, UnexpectedOpeningBracketLine) {
 
     auto actual = parse_brackets(input);
     EXPECT_EQ(expected, actual);
+    print_set_difference(actual, expected);
 }
 
 /**
@@ -412,6 +414,7 @@ TEST(testBracketChecker2, CurlyDoubleQuotesShouldNotAffectBracketParsing) {
     };
 
     EXPECT_EQ(errors, expected);
+    print_set_difference(expected, errors);
 }
 
 /**
@@ -427,6 +430,7 @@ TEST(testBracketChecker2, ExceedsMaximumLinesAllowed) {
     };
 
     EXPECT_EQ(errors, expected);
+    print_set_difference(expected, errors);
 }
 
 /**
@@ -444,6 +448,7 @@ TEST(testBracketChecker2, ExceedsMaximumLineLength) {
     };
 
     EXPECT_EQ(errors, expected);
+    print_set_difference(expected, errors);
 }
 
 /**
@@ -461,6 +466,7 @@ TEST(testBracketChecker2, DetectsMacroUsage) {
     };
 
     EXPECT_EQ(errors, expected);
+    print_set_difference(expected, errors);
 }
 
 
@@ -481,3 +487,4 @@ int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+
