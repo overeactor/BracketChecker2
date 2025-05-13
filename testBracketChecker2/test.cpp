@@ -75,8 +75,9 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningParenthesis) {
     set<BracketError> expected = {
         {'(', 1, 1, UNMATCHED_BRACKET}
     };
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
     /*function call print_set_difference(...)*/
 }
 
@@ -89,8 +90,9 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningBrace) {
     set<BracketError> expected = {
         {'{', 1, 1, UNMATCHED_BRACKET}
     };
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 /**
@@ -102,8 +104,9 @@ TEST(testBracketChecker2, DetectUnmatchedOpeningSquareBracket) {
     set<BracketError> expected = {
         {'[', 1, 1, UNMATCHED_BRACKET}
     };
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 
@@ -116,8 +119,9 @@ TEST(testBracketChecker2, IgnoreNonOpeningBrackets) {
     set<BracketError> expected = {
         {')', 1, 2, WRONG_BRACKET}
     };
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 /**
@@ -129,8 +133,9 @@ TEST(testBracketChecker2, DetectUnmatchedClosingParenthesis) {
     set<BracketError> expected = {
         {')', 1, 1, WRONG_BRACKET}
     };
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 /**
@@ -142,8 +147,9 @@ TEST(testBracketChecker2, DetectUnmatchedClosingBrace) {
     set<BracketError> expected = {
         {'}', 1, 1, WRONG_BRACKET}
     };
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 /**
@@ -155,8 +161,9 @@ TEST(testBracketChecker2, DetectUnmatchedClosingSquareBracket) {
     set<BracketError> expected = {
         {']', 1, 1, WRONG_BRACKET}
     };
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 /**
@@ -168,8 +175,9 @@ TEST(testBracketChecker2, IgnoreNonClosingBrackets) {
     set<BracketError> expected = {
         {'(', 1, 1, UNMATCHED_BRACKET}
     };
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 
@@ -180,8 +188,9 @@ TEST(testBracketChecker2, IgnoreNonClosingBrackets) {
 TEST(testBracketChecker2, DetectMatchingParentheses) {
     vector<string> code = { "()" };
     set<BracketError> expected = {};
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 /**
@@ -191,8 +200,9 @@ TEST(testBracketChecker2, DetectMatchingParentheses) {
 TEST(testBracketChecker2, DetectMatchingSquareBrackets) {
     vector<string> code = { "[]" };
     set<BracketError> expected = {};
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 /**
@@ -202,8 +212,9 @@ TEST(testBracketChecker2, DetectMatchingSquareBrackets) {
 TEST(testBracketChecker2, DetectMatchingBraces) {
     vector<string> code = { "{}" };
     set<BracketError> expected = {};
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 /**
@@ -216,8 +227,9 @@ TEST(testBracketChecker2, DetectMismatchedParenthesesAndSquare) {
         {'[', 1, 2, UNMATCHED_BRACKET},
         {'(', 1, 1, UNMATCHED_BRACKET}
     };
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 /**
@@ -230,8 +242,9 @@ TEST(testBracketChecker2, DetectMismatchedBraceAndParenthesis) {
         {')', 1, 2, WRONG_BRACKET},
         {'{', 1, 1, UNMATCHED_BRACKET}
     };
-    EXPECT_EQ(parse_brackets(code), expected);
-    print_set_difference(expected, parse_brackets(code));
+    auto actual = parse_brackets(code);
+    EXPECT_EQ(actual, expected);
+    print_set_difference(expected, actual);
 }
 
 /**
