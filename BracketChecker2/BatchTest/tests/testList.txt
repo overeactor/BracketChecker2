@@ -1,7 +1,11 @@
-tests to make:
-
-1001 lines
-1001 symbols	
-#define file
-empty file
-not cpp file
+test1_simple.cpp | Testing simple bracket matching.
+test2_strings.cpp | Testing brackets inside strings.
+test3_char.cpp | Testing brackets inside character literals.
+test4_complex.cpp | Testing complex nesting and mixed types.
+test5_unmatched.cpp | Testing unmatched opening brackets.
+test6_wrong_closing.cpp | Testing wrong closing brackets.
+test7_1001_lines.cpp | Testing code with 1001 lines (TOO_LONG_PROGRAM).
+test8_1001_chars.cpp | Testing line with 1001 characters (TOO_LONG_LINE).
+test9_define.cpp | Testing macro usage (#define detection).
+test10_empty.cpp | Testing completely empty file.
+test11_not_cpp.txt | Testing a non-C++ file (should be ignored or flagged).
