@@ -17,7 +17,7 @@
 #include <gtest/gtest.h>
 #include <set>
 #include "../BracketChecker2/BracketChecker2.h"  
-#include "../BracketChecker2/BracketChecker2.cpp"  
+
 
 
 /* kuliokin: Add a function to compare set and print message if sets are not equlas...
