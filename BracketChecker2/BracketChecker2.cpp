@@ -5,7 +5,7 @@
 #include "BracketChecker2.h"
 
 
-
+ // Reads lines from a given file and returns them as a vector of strings
 vector<string> read_input_file(const string& filename) {
     ifstream file(filename);
     vector<string> lines;
@@ -25,10 +25,10 @@ vector<string> read_input_file(const string& filename) {
 }
 
 
-
+// Validates code formatting: max number of lines, max line length, and no macro usage
 set<BracketError> code_validation(const vector<string>& lines) {
     set<BracketError> errors;
-
+    // Check for too many lines
     if (lines.size() >= 1000) {
         errors.insert({ '\0', static_cast<int>(lines.size()), 1, TOO_LONG_PROGRAM });
         return errors;
@@ -36,11 +36,12 @@ set<BracketError> code_validation(const vector<string>& lines) {
 
     for (size_t i = 0; i < lines.size(); i++) {
         const string& line = lines[i];
-
+        
+        // Check for long lines
         if (line.length() >= 1000) {
             errors.insert({ '\0', static_cast<int>(i + 1), 1001, TOO_LONG_LINE });
         }
-
+        // Check for usage of #define macros
         size_t pos = line.find("#define");
         if (pos != string::npos) {
             errors.insert({ '#', static_cast<int>(i + 1), static_cast<int>(pos + 1), MACRO_USAGE });
@@ -50,15 +51,15 @@ set<BracketError> code_validation(const vector<string>& lines) {
     return errors;
 }
 
-
+// Helper: Returns true if character is an opening bracket
 inline bool isOpeningBracket(char ch) {
     return ch == '(' || ch == '[' || ch == '{';
 }
-
+// Helper: Returns true if character is a closing bracket
 inline bool isClosingBracket(char ch) {
     return ch == ')' || ch == ']' || ch == '}';
 }
-
+// Helper: Checks if the open and close brackets form a matching pair
 inline bool isMatchingPair(char open, char close) {
     return (open == '(' && close == ')') ||
         (open == '[' && close == ']') ||
@@ -66,9 +67,9 @@ inline bool isMatchingPair(char open, char close) {
 }
 
 
-
+// Parses brackets in the given lines and detects unmatched or wrong bracket pairs
 set<BracketError> parse_brackets(const vector<string>& lines) {
-    stack<pair<char, pair<int, int>>> bracketStack;
+    stack<pair<char, pair<int, int>>> bracketStack; // Stack stores (bracket, (line, column))
     set<BracketError> errorPositions;
     bool inBlockComment = false;
 
@@ -80,17 +81,17 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
 
         for (size_t i = 0; i < line.size(); i++) {
             char ch = line[i];
-
+            // Handle comments
             if (i < line.size() - 1) {
                 if (!inBlockComment && line[i] == '/' && line[i + 1] == '/') {
-                    inLineComment = true;
+                    inLineComment = true;// Start of single-line comment
                 }
                 else if (!inLineComment && !inBlockComment && line[i] == '/' && line[i + 1] == '*') {
-                    inBlockComment = true;
+                    inBlockComment = true; // Start of block comment
                     i++; continue;
                 }
                 else if (inBlockComment && line[i] == '*' && line[i + 1] == '/') {
-                    inBlockComment = false;
+                    inBlockComment = false; // End of block comment
                     i++; continue;
                 }
             }
@@ -125,7 +126,7 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
             }
 
             if (inString) continue;
-
+            // Handle brackets
             if (isOpeningBracket(ch)) {
                 bracketStack.push({ ch, {static_cast<int>(lineNum + 1), static_cast<int>(i + 1)} });
             }
@@ -133,13 +134,13 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
                 if (!bracketStack.empty() && isMatchingPair(bracketStack.top().first, ch)) {
                     bracketStack.pop();
                 }
-                else {
+                else {  // Wrong closing bracket
                     errorPositions.insert({ ch, static_cast<int>(lineNum + 1), static_cast<int>(i + 1), WRONG_BRACKET });
                 }
             }
         }
     }
-
+    // Add remaining unmatched opening brackets
     while (!bracketStack.empty()) {
         auto top = bracketStack.top();
         errorPositions.insert({ top.first, top.second.first, top.second.second, UNMATCHED_BRACKET });
@@ -153,7 +154,7 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
 
 
 
-
+// Writes the bracket and formatting errors to an output file
 void print_result(const string& outputFilename, const set<BracketError>& errors) {
     ofstream outputFile(outputFilename);
     if (!outputFile) {
