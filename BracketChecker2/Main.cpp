@@ -46,7 +46,7 @@ bool has_cpp_extension(const string& filename) {
  * @param argv [in] Array of command-line argument strings.
  * @return int Exit status: 0 on success, 1 on error.
  */
-int main(int argc, char* argv[]) {
+int main(int argc, const char* argv[]) {
     if (argc < 3) {
         cerr << "Usage: BracketChecker2 <input.cpp> <result.txt>" << endl;
         return 1;
