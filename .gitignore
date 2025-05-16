@@ -128,3 +128,5 @@ $tf/
 
 # Guidance Automation Toolkit
 *.gpState
+
+html/
