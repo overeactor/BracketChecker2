@@ -25,6 +25,9 @@ for %%f in (
     test9_define.cpp
     test10_empty.cpp
     test11_not_cpp.txt
+    test13_not_opened.cpp
+    test14_string_literal.cpp
+    test15_string_literal.cpp
 ) do (
     set "filename=%%f"
     set "ext=%%~xf"
@@ -43,6 +46,9 @@ for %%f in (
     if "%%f"=="test9_define.cpp" set "description=Testing macro usage (#define detection)."
     if "%%f"=="test10_empty.cpp" set "description=Testing completely empty file."
     if "%%f"=="test11_not_cpp.txt" set "description=Testing a non-C++ file (should be ignored or flagged)."
+    if "%%f"=="test13_not_opened.cpp" set "description=Not opened bracket"
+    if "%%f"=="test14_string_literal.cpp" set "description=No matched bracket after \""
+    if "%%f"=="test15_string_literal.cpp" set "description=No matched bracket in string literal"
 
     if /I "%%~xf"==".cpp" (
         echo Running %%f >> "%OUTPUT_FILE%"

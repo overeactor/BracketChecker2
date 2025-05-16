@@ -69,3 +69,23 @@ All brackets are correctly closed.
 Skipping test11_not_cpp.txt – not a .cpp file. 
 Description: Testing a non-C++ file (should be ignored or flagged). 
  
+Running test13_not_opened.cpp 
+Description: Not opened bracket 
+---------- 
+=== Result === 
+Unmatched or invalid constructs found: 
+At Line 1, Column 10: Wrong closing bracket ')'.
+At Line 2, Column 1: Wrong closing bracket '}'.
+ 
+Running test14_string_literal.cpp 
+Description: No matched bracket after \" 
+---------- 
+=== Result === 
+All brackets are correctly closed.
+ 
+Running test15_string_literal.cpp 
+Description: No matched bracket in string literal 
+---------- 
+=== Result === 
+All brackets are correctly closed.
+ 
