@@ -67,7 +67,6 @@ inline bool isMatchingPair(char open, char close) {
 }
 
 
-// Parses brackets in the given lines and detects unmatched or wrong bracket pairs
 set<BracketError> parse_brackets(const vector<string>& lines) {
     stack<pair<char, pair<int, int>>> bracketStack; // Stack stores (bracket, (line, column))
     set<BracketError> errorPositions;
@@ -84,7 +83,7 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
             // Handle comments
             if (i < line.size() - 1) {
                 if (!inBlockComment && line[i] == '/' && line[i + 1] == '/') {
-                    inLineComment = true;// Start of single-line comment
+                    inLineComment = true; // Start of single-line comment
                 }
                 else if (!inLineComment && !inBlockComment && line[i] == '/' && line[i + 1] == '*') {
                     inBlockComment = true; // Start of block comment
@@ -98,34 +97,28 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
 
             if (inBlockComment || inLineComment) continue;
 
-            // Normalize fancy quotes: “ ” → " and ‘ ’ → '
+            // Handle strings
             if (!inString && (ch == '"' || ch == '\'' || ch == '“' || ch == '”' || ch == '‘' || ch == '’')) {
                 inString = true;
-
-                // Normalize fancy quote to standard quote type
-                if (ch == '“' || ch == '”') {
-                    stringDelimiter = '"';
-                }
-                else if (ch == '‘' || ch == '’') {
-                    stringDelimiter = '\'';
-                }
-                else {
-                    stringDelimiter = ch;
-                }
-
+                if (ch == '“' || ch == '”') stringDelimiter = '"';
+                else if (ch == '‘' || ch == '’') stringDelimiter = '\'';
+                else stringDelimiter = ch;
                 continue;
             }
-            // If inside string, and we hit a matching closing quote (even a fancy one), exit
-            else if (inString && (
-                ch == stringDelimiter ||
-                (stringDelimiter == '"' && (ch == '“' || ch == '”')) ||
-                (stringDelimiter == '\'' && (ch == '‘' || ch == '’'))
-                )) {
-                inString = false;
+            else if (inString) {
+                if (ch == stringDelimiter) {
+                    int backslashes = 0;
+                    size_t j = i;
+                    while (j > 0 && line[--j] == '\\') {
+                        backslashes++;
+                    }
+                    if (backslashes % 2 == 0) {
+                        inString = false;
+                    }
+                }
                 continue;
             }
 
-            if (inString) continue;
             // Handle brackets
             if (isOpeningBracket(ch)) {
                 bracketStack.push({ ch, {static_cast<int>(lineNum + 1), static_cast<int>(i + 1)} });
@@ -149,6 +142,7 @@ set<BracketError> parse_brackets(const vector<string>& lines) {
 
     return errorPositions;
 }
+
 
 
 
